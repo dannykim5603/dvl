@@ -32,7 +32,7 @@ window.setTimeout('window.location.reload()',5000); //5초마다 새로고침
 		<li>가입시 감사메일 발송[ ]</li>
 		<li>이름, 이메일 입력시 아이디 찾기[ ]</li>
 		<li>게시판[ ]</li>
-		<li>게시물 리스트/작성</li>
+		<li>게시물 리스트/작성[ ]</li>
 	</ul>
 	
 	

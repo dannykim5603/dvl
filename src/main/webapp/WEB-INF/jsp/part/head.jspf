@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>데빌런</title>
+<link rel="favicon" href="favicon.ico">
 <!-- 모바일에서 사이트가 PC에서의 픽셀크기 기준으로 작동하게 하기(반응형 하려면 필요) -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,8 +32,12 @@
 <!-- 공통 JS -->
 <script src="/resource/app.js"></script>
 <%="<script>"%>
-	var param = ${paramJson};
+var activeProfile = '${activeProfile}';
 <%="</script>"%>
+<%="<script>"%>
+var param = ${paramJson};
+<%="</script>"%>
+
 
 </head>
 <body>
@@ -57,6 +62,7 @@
  		<a href="/usr/member/login">로그인</a>
 	</c:if>
 	<c:if test="${isLogined}">
+		<a href="/usr/member/modify">회원 정보 수정</a>
  		<a href="/usr/member/doLogout">로그아웃</a>
 	</c:if>
 </div>

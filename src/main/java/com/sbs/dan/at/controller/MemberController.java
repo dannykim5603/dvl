@@ -85,7 +85,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/usr/member/doModify")
-	public String doModify() {
+	public String doModify(HttpSession session, Model model, String redirectUri) {
+		Member member = memberService.getMemberById((int)session.getAttribute("loginedMemberId"));
 		
 		return "";
 	}
