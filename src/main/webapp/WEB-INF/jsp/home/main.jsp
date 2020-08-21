@@ -17,10 +17,7 @@
 		padding-top:10px;
 	}
 </style>
-<script>
-window.setTimeout('window.location.reload()',5000); //5초마다 새로고침
-</script>
-<h1> 알파 테스트 (v.0.0.2.2)</h1>
+<h1> 알파 테스트 (v.0.0.1.4)</h1>
 <h1 style="color:red"> 데빌런</h1>
 <h2 style="background-color:black"> Daily VilLains</h2>
 	<ul class="option-list">
@@ -28,11 +25,11 @@ window.setTimeout('window.location.reload()',5000); //5초마다 새로고침
 		<li>로그인[o]</li>
 		<li>로그아웃[o]</li>
 		<li>로그인, 로그아웃시 자동 페이지 새로고침[o]</li>
-		<li>회원정보 수정[ ]</li>
-		<li>가입시 감사메일 발송[ ]</li>
+		<li>회원정보 수정[o]</li>
 		<li>이름, 이메일 입력시 아이디 찾기[ ]</li>
-		<li>게시판[ ]</li>
-		<li>게시물 리스트/작성[ ]</li>
+		<li>가입시 감사메일 발송[ ]</li>
+		<li>자유 공지 게시판[ ]</li>
+		<li>자유 공지 게시물 리스트/작성[ ]</li>
 	</ul>
 	
 	

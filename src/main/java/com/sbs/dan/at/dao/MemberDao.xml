@@ -27,4 +27,22 @@
 		SELECT * FROM member
 		WHERE loginId = #{loginId}
 	</select>
+	
+	<update id = "modify">
+		UPDATE member
+		<set>
+			updateDate = NOW(),
+			<if test="loginPwReal != null">loginPw = #{loginPwReal}</if>,
+			<if test="nickname != null">nickname = #{nickname}</if>,
+			<if test="email != null">email = #{email}</if>,
+			<if test="cellphoneNo != null">phoneNo = #{cellphoneNo}</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+	
+	<select id="findId" resultType="String">
+		SELECT * FROM member
+		WHERE name = #{name},
+		AND email = #{email}
+	</select>
 </mapper>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sbs.dan.at.dto.Member;
 import com.sbs.dan.at.service.MemberService;
+import com.sbs.dan.at.util.Util;
 
 @Controller
 public class MemberController {
@@ -56,12 +57,12 @@ public class MemberController {
 		session.setAttribute("loginedMemberId",member.getId());
 		
 		if (redirectUri == null || redirectUri.length() == 0) {
-			redirectUri = "/home/main";
+			redirectUri = "/usr/home/main";
 		}
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg",String.format("%s님 반갑습니다.", member.getNickname()));
 		
-		return "/home/main";
+		return "common/redirect";
 	}
 	
 	@RequestMapping("/usr/member/doLogout")
@@ -69,11 +70,11 @@ public class MemberController {
 		session.removeAttribute("loginedMemberId");
 		
 		if (redirectUri == null || redirectUri.length() == 0) {
-			redirectUri = "/home/main";
+			redirectUri = "/usr/home/main";
 		}
 		model.addAttribute("redirectUri",redirectUri);
 		
-		return "/home/main";
+		return "common/redirect";
 	}
 	
 	@RequestMapping("/usr/member/modify")
@@ -85,9 +86,37 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/usr/member/doModify")
-	public String doModify(HttpSession session, Model model, String redirectUri) {
+	public String doModify(@RequestParam Map<String, Object> param, HttpSession session, Model model, String redirectUri) {
 		Member member = memberService.getMemberById((int)session.getAttribute("loginedMemberId"));
+		int id = (int)session.getAttribute("loginedMemberId");
 		
-		return "";
+		Map<String, Object> newParam = Util.getNewMapOf(param, "loginPwReal", "nickname", "email", "cellphoneNo");
+		newParam.put("id", id);
+		
+		System.out.println("========================================");
+		System.out.println("========================================");
+		System.out.println(newParam);
+		System.out.println("redirectUri : " + redirectUri);
+		System.out.println("해당 계정 아이디 : " + id);
+		System.out.println("========================================");
+		System.out.println("========================================");
+		
+		memberService.modify(newParam);
+		
+		return "redirect:"+redirectUri;
+	}
+	
+	@RequestMapping("/usr/member/findId")
+	public String findId(HttpSession session, Model model, String redirectUri) {
+		return "/member/findId";
+	}
+	
+	@RequestMapping("/usr/member/doFindId")
+	public String doFindId(@RequestParam Map<String, Object> param, HttpSession session, Model model, String redirectUri) {
+		Map<String, Object> newParam = Util.getNewMapOf(param, "name","email");
+		String loginId = (String)memberService.findId(newParam);
+		
+		
+		return "redirect:"+redirectUri;
 	}
 }

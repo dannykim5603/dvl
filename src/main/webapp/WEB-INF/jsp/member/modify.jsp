@@ -97,10 +97,13 @@
 		margin-top: 10px;
 	}
 </style>
-<form method="POST" class="table-box con form1" action="doJoin" onsubmit="MemberModifyForm__submit(this); return false;">
-	<input type="hidden" name="redirectUri" value="/member/login">
-	<input type="hidden" name="loginPwReal">
 
+<form method="POST" class="table-box con form1" action="doModify" onsubmit="MemberModifyForm__submit(this); return false;">
+	<input type="hidden" name="redirectUri" value="/usr/member/login">
+	<input type="hidden" name="id" value="${id}">
+	
+	<input type="hidden" name="loginPwReal">
+	
 	<table class="modify">
 		<colgroup>
 			<col width="70">

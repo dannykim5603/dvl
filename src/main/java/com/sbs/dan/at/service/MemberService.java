@@ -20,10 +20,6 @@ public class MemberService {
 		return id;
 	}
 
-	public String doLogin() {
-		return "";
-	}
-
 	public Member getMemberByLoginId(String loginId) {
 		
 		return memberDao.getMemberByLoginId(loginId);
@@ -31,5 +27,13 @@ public class MemberService {
 
 	public Member getMemberById(int loginedMemberId) {
 		return memberDao.getMemberById(loginedMemberId);
+	}
+
+	public void modify(Map<String, Object> newParam) {
+		memberDao.modify(newParam);
+	}
+
+	public String findId(Map<String, Object> newParam) {
+		return memberDao.findId(newParam);
 	}
 }
