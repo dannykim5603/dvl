@@ -30,8 +30,8 @@ public class MemberController {
 		System.out.println("loginPw : " + param.get("loginPwReal"));
 //		boolean check = memberService.checkIsJoinableId(param); //가능하면 true 이미 있는 아이디면 false
 		System.out.println(param);
-		int newMemberId = memberService.doJoin(param);
-		return "redirect:/usr/home/main";
+		memberService.doJoin(param);
+		return "common/redirect";
 	}
 
 	@RequestMapping("/usr/member/login")
@@ -74,7 +74,7 @@ public class MemberController {
 		}
 		model.addAttribute("redirectUri",redirectUri);
 		
-		return "common/redirect";
+		return "redirect:\"+redirectUri";
 	}
 	
 	@RequestMapping("/usr/member/modify")
@@ -115,8 +115,9 @@ public class MemberController {
 	public String doFindId(@RequestParam Map<String, Object> param, HttpSession session, Model model, String redirectUri) {
 		Map<String, Object> newParam = Util.getNewMapOf(param, "name","email");
 		String loginId = (String)memberService.findId(newParam);
+		System.out.println(loginId);
+//		return "html:<script> alert('찾으신 아이디는  " + member.getLoginId()+ "  입니다.'); location.replace('../member/login') </script>";
 		
-		
-		return "redirect:"+redirectUri;
+		return "common/redirect";
 	}
 }

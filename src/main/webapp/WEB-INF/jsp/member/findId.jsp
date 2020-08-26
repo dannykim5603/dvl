@@ -6,28 +6,34 @@
 <%@ include file="../part/head.jspf"%>
 
 <script>
-	var MemberfindIdForm__submitDone = false;
-	function MemberfindIdForm__submit(form) {
-		if (MemberfindIdForm__submit) {
+	var MemberFindIdForm__submitDone = false;
+	function MemberFindIdForm__submit(form) {
+		if (MemberFindIdForm__submit) {
 			alert('처리중입니다.');
 			return;
 		}
+		
+		form.name.value = form.name.value.trim();
 
+		if (form.name.value.length == 0) {
+			form.name.focus();
+			alert('이메일을 입력해주세요.');
+			return;
+		}
+		
 		form.email.value = form.email.value.trim();
 
 		if (form.email.value.length == 0) {
 			form.email.focus();
 			alert('이메일을 입력해주세요.');
-
 			return;
 		}
 
 		form.submit();
-		MemberLoginForm__submitDone = true;
+		MemberFindIdForm__submitDone = true;
 	}
 </script>
-<form method="POST" class="table-box con form1" action="doLogin"
-	onsubmit="MemberfindIdForm__submit(this); return false;">
+<form method="POST" class="table-box con form1" action="doLogin" onsubmit="MemberFindIdForm__submit(this); return false;">
 	<input type="hidden" name="redirectUri" value="${param.redirectUri}">
 	<input type="hidden" name="loginPwReal">
 
@@ -40,8 +46,7 @@
 				<th>이름</th>
 				<td>
 					<div class="form-control-box">
-						<input type="text" placeholder="로그인 아이디 입력해주세요." name="name"
-							maxlength="30" autofocus="autofocus" />
+						<input type="text" placeholder="로그인 아이디 입력해주세요." name="name" maxlength="30" autofocus="autofocus" />
 					</div>
 				</td>
 			</tr>
@@ -49,8 +54,7 @@
 				<th>이메일</th>
 				<td>
 					<div class="form-control-box">
-						<input type="email" placeholder="이메일을 입력해주세요."
-							name="email" maxlength="50" />
+						<input type="email" placeholder="이메일을 입력해주세요." name="email" maxlength="50" />
 					</div>
 				</td>
 			</tr>
