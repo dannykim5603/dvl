@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.sbs.dan.at.dto.Article;
 import com.sbs.dan.at.dto.Board;
+import com.sbs.dan.at.dto.Member;
 
 @Mapper
 public interface ArticleDao {
@@ -16,5 +17,7 @@ public interface ArticleDao {
 	Board getBoardByCode(String boardCode);
 
 	void write(Map<String, Object> newParam);
+
+	Article getArticleForPrintById(Member loginedMember, int id);
 
 }

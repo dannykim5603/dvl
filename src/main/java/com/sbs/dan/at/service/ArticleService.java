@@ -1,6 +1,7 @@
 package com.sbs.dan.at.service;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.sbs.dan.at.dao.ArticleDao;
 import com.sbs.dan.at.dto.Article;
 import com.sbs.dan.at.dto.Board;
+import com.sbs.dan.at.dto.File;
+import com.sbs.dan.at.dto.Member;
 import com.sbs.dan.at.util.Util;
 @Service
 public class ArticleService {
@@ -58,5 +61,27 @@ public class ArticleService {
 			}
 		}
 		return id;
+	}
+
+	public Article getArticleForPrintById(Member loginedMember, int id) {
+		Article article = articleDao.getArticleForPrintById(loginedMember,id);
+		
+		updateForPrintInfo(loginedMember,article);
+		/*
+		List<File> files = fileService.getFiles("article",article.getId(),"common","attachment");
+		
+		Map<String, File> filesMap = new HashMap<>();
+		
+		for (File file : files) {
+			filesMap.put(file.getFileNo() + "",file);
+		}
+	
+		Util.putExtraVal(article, "file__common__attachment", filesMap);*/
+		return article;
+	}
+
+	private void updateForPrintInfo(Member loginedMember, Article article) {
+		// TODO Auto-generated method stub
+		
 	}
 }

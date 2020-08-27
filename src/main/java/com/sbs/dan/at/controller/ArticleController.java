@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sbs.dan.at.dto.Article;
 import com.sbs.dan.at.dto.Board;
+import com.sbs.dan.at.dto.Member;
 import com.sbs.dan.at.service.ArticleService;
 import com.sbs.dan.at.util.Util;
 
@@ -62,7 +63,20 @@ public class ArticleController {
 	}
 	
 	@RequestMapping("/usr/article/{boardCode}-detail")
-	public void detail() {
+	public String detail(Model model, @RequestParam Map<String,Object> param, HttpServletRequest req, @PathVariable("boardCode") String boardCode, String listUrl) {
+		if (listUrl == null) {
+			listUrl = "./" + boardCode + "-list";
+		}
+		model.addAttribute("listUrl", listUrl);
 		
+		Board board = articleService.getBoardByCode(boardCode);
+		model.addAttribute("board",board);
+		
+		int id = Integer.parseInt((String) param.get("id"));
+		Member loginedMember = (Member) req.getAttribute("loginedMember");
+		Article article = articleService.getArticleForPrintById(loginedMember,id);
+		model.addAttribute("article",article);
+		
+		return "article/detail";
 	}
 }
