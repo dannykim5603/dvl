@@ -54,9 +54,14 @@ var param = ${paramJson};
 		color:crimson;
 		padding:20px;
 	}
+	.board {
 	
+	}
+	.board > a{
+	}
 </style>
 <div class="header" style="text-align:center">
+	
 	<a href="/usr/home/main">홈</a>
 	<c:if test="${isLogined}">
 		<a href="">${loginedMember.nickname}님 환영합니다.</a>
@@ -70,5 +75,6 @@ var param = ${paramJson};
 		<a href="/usr/member/modify">회원 정보 수정</a>
  		<a href="/usr/member/doLogout">로그아웃</a>
 	</c:if>
-	<a href="/usr/board">게시판</a>
+	<a href="/usr/article/free-list">자유게시판</a>	
+	<a href="/usr/article/notice-list">공지게시판</a>	
 </div>
