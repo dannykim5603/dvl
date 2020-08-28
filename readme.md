@@ -16,9 +16,9 @@
     -/usr/article/notice-write : 공지사항 게시물 작성
       -힌트
         - @RequestMapping("/usr/article/{boardCode}-write")
-        - public String showWrite(Model model, @PathVariable("boardCode"), String boardCode){
+        - public String showWrite(Model model, @PathVariable("boardCode") String boardCode){
     -/usr/article/free-list: 자유 게시물 리스트
     -/usr/article/notice-list: 공지사항 게시물 리스트
         - @RequestMapping("/usr/article/{boardCode}-list")
-        - public String showList(Model model, @PathVariable("boardCode"), String boardCode){
+        - public String showList(Model model, @PathVariable("boardCode") String boardCode){
  ```
