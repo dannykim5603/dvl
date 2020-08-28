@@ -3,26 +3,65 @@
 <%@ include file="../part/head.jspf" %>
 
 <style>
+.form1 {
+	padding-bottom:30px;
+}
 .title {
 	text-align:center;
 	margin:30px;
 }
 .title >.name{
 	text-decoration:none;
+	color:crimson;
+	letter-spacing:-3px;
 }
 .table-box {
 	
 }
 .table-box > table > thead {
+
+}
+.table-box > tbody > tr > th {
+
+}
+.article-detail-box >.tr {
 	background-color:black;
 	color:crimson;
 	text-align-last:center;
 }
+.article-detail-box > .td {
+	text-align:center;
+}
 </style>
 <div class = "title">
-	<a class="name">${board.name}</a>
+	<a class="name">${board.name} 게시판</a>
 </div>
 <div class="article-detail-box table-box table-box-vertical con">
+
+	<div class ="tr">
+	<h3>제목</h3>
+	</div>
+	
+	<div class="td">
+	<h3>${article.title}</h3>
+	</div>
+	
+	<div class ="tr">
+	<h4>번호 / 날짜</h4>
+	</div>
+	
+	<div class="td">
+	<h4>${article.id} / ${article.regDate}</h4>
+	</div>
+	
+	<div class ="tr">
+	<h3>내용</h3>
+	</div>
+	
+	<div class="td">
+	<h2>${article.body}</h2>
+	</div>
+	
 	<table>
 		<colgroup>
 			<col class ="table-first-col"/>

@@ -35,9 +35,11 @@ public class ArticleController {
 	
 	@RequestMapping("/usr/article/{boardCode}-write")
 	public String write(@PathVariable("boardCode") String boardCode, Model model, String listUrl) {
+		
 		if (listUrl == null) {
 			listUrl = "./" + boardCode + "-list";
 		}
+		
 		model.addAttribute("listUrl", listUrl);
 		Board board = articleService.getBoardByCode(boardCode);
 		model.addAttribute("board",board);
@@ -51,7 +53,7 @@ public class ArticleController {
 		model.addAttribute("board",board);
 		
 		Map<String, Object> newParam = Util.getNewMapOf(param, "title", "body", "fileIdsStr");
-		int loginedMemberId = (int)req.getAttribute("lginedMemberId");
+		int loginedMemberId = (int)req.getAttribute("loginedMemberId");
 		newParam.put("boardId", board.getId());
 		newParam.put("memberId", loginedMemberId);
 		int newArticleId = articleService.write(newParam);
@@ -64,9 +66,11 @@ public class ArticleController {
 	
 	@RequestMapping("/usr/article/{boardCode}-detail")
 	public String detail(Model model, @RequestParam Map<String,Object> param, HttpServletRequest req, @PathVariable("boardCode") String boardCode, String listUrl) {
+		
 		if (listUrl == null) {
 			listUrl = "./" + boardCode + "-list";
 		}
+		
 		model.addAttribute("listUrl", listUrl);
 		
 		Board board = articleService.getBoardByCode(boardCode);
@@ -79,4 +83,5 @@ public class ArticleController {
 		
 		return "article/detail";
 	}
+	
 }
