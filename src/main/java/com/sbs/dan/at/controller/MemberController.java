@@ -49,6 +49,11 @@ public class MemberController {
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
 			return "common/redirect";
 		}
+		if (member.getDelStatus() == 1) {
+			model.addAttribute("historyBack",true);
+			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
+			return "common/redirect";
+		}
 		if (member.getLoginPw().equals(loginPw) == false) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","비밀번호가 일치하지 않습니다.");
@@ -104,6 +109,24 @@ public class MemberController {
 		memberService.modify(newParam);
 		
 		return "redirect:"+redirectUri;
+	}
+	
+	@RequestMapping("/usr/member/deleteAccount")
+	public String deleteAccount (@RequestParam Map<String, Object> param, HttpSession session, Model model, String redirectUri) {
+		int id = (int)session.getAttribute("loginedMemberId");
+		Member member = memberService.getMemberById(id);
+		
+		memberService.deleteAccount(member);
+		
+		return "redirect: /usr/home/main";
+	}
+	
+	@RequestMapping("/usr/member/accountInfo")
+	public String accountInfo(HttpSession session, Model model, String redirectUri) {
+		Member member = memberService.getMemberById((int)session.getAttribute("loginedMemberId"));
+		model.addAttribute("member",member);
+		
+		return "/member/accountInfo";
 	}
 	
 	@RequestMapping("/usr/member/findId")

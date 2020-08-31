@@ -52,4 +52,8 @@ public class MemberService {
 	public String findId(Map<String, Object> newParam) {
 		return memberDao.findId(newParam);
 	}
+
+	public void deleteAccount(Member member) {
+		memberDao.deleteAccount(member);
+	}
 }

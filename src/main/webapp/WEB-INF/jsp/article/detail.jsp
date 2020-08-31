@@ -38,12 +38,16 @@
 .article-detail-box > .td {
 	text-align:center;
 }
+.button {
+	margin-top:30px;
+	text-align:center;
+}
 </style>
 <div class = "title">
 	<a class="name">${board.name} 게시판</a>
 </div>
 <div class="article-detail-box table-box table-box-vertical con">
-
+<!-- 
 	<div class ="tr">
 	<h3>제목</h3>
 	</div>
@@ -67,7 +71,7 @@
 	<div class="td">
 	<h2>${article.forPrintBody}</h2>
 	</div>
-	
+-->
 	<table>
 		<colgroup>
 			<col class ="table-first-col"/>
@@ -112,8 +116,19 @@
 					</c:if>
 				</c:forEach>
 			</tr>
+			<tr>
+				<th>비고</th>
+				<td>
+					
+					<a class="btn btn-info" href="${listUrl}" style="background:black">리스트</a>
+					<a class="btn btn-info" href="${board.code}-delete" style="background:crimson">삭제</a>
+				</td>
+			</tr>
 		</tbody>
 	</table>
+	<div class ="button">
+		
+	</div>
 	 
 	 
 </div>

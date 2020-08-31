@@ -18,4 +18,6 @@ public interface MemberDao {
 	void modify(Map<String, Object> newParam);
 
 	String findId(Map<String, Object> newParam);
+
+	void deleteAccount(Member member);
 }

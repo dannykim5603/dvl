@@ -45,4 +45,12 @@
 		WHERE name = #{name},
 		AND email = #{email}
 	</select>
+	
+	<update id="deleteAccount">
+		UPDATE member
+		updateDate = NOW(),
+		delDate = NOW(),
+		delStatus = 1,
+		WHERE id = #{id}
+	</update>
 </mapper>
