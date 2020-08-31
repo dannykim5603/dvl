@@ -31,7 +31,7 @@ public class MemberController {
 //		boolean check = memberService.checkIsJoinableId(param); //가능하면 true 이미 있는 아이디면 false
 		System.out.println(param);
 		memberService.doJoin(param);
-		return "common/redirect";
+		return "redirect:usr/home/main";
 	}
 
 	@RequestMapping("/usr/member/login")

@@ -21,8 +21,14 @@
 .table-box > table > thead {
 
 }
-.table-box > tbody > tr > th {
+.table-box>table th, .table-box>table > th{
+	background:#111111;
+	color:crimson;
+	text-align:center;
+}
 
+.article-detail-box {
+	margin-top: 150px;
 }
 .article-detail-box >.tr {
 	background-color:black;
@@ -59,7 +65,7 @@
 	</div>
 	
 	<div class="td">
-	<h2>${article.body}</h2>
+	<h2>${article.forPrintBody}</h2>
 	</div>
 	
 	<table>
@@ -108,6 +114,8 @@
 			</tr>
 		</tbody>
 	</table>
+	 
+	 
 </div>
 
 <%@ include file="../part/foot.jspf" %>

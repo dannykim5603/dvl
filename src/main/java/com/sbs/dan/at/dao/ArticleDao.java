@@ -20,4 +20,6 @@ public interface ArticleDao {
 
 	Article getArticleForPrintById(Member loginedMember, int id);
 
+	void delete(int id);
+
 }

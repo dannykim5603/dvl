@@ -30,6 +30,7 @@ public class ArticleController {
 		
 		List<Article> articles = articleService.getArticlesForList(board.getId());
 		model.addAttribute("articles",articles);
+
 		return "article/list";
 	}
 	
@@ -47,20 +48,25 @@ public class ArticleController {
 		return "article/write";
 	}
 	
-	@RequestMapping("/usr/aritcle/{boardCode}-doWrite")
+	@RequestMapping("/usr/article/{boardCode}-doWrite")
 	public String doWrite(@RequestParam Map<String,Object> param, HttpServletRequest req, @PathVariable("boardCode") String boardCode, Model model) {
+
 		Board board = articleService.getBoardByCode(boardCode);
+		
 		model.addAttribute("board",board);
 		
-		Map<String, Object> newParam = Util.getNewMapOf(param, "title", "body", "fileIdsStr");
+		Map<String, Object> newParam = Util.getNewMapOf(param, "title", "body");
+		
 		int loginedMemberId = (int)req.getAttribute("loginedMemberId");
+		
 		newParam.put("boardId", board.getId());
 		newParam.put("memberId", loginedMemberId);
+		
 		int newArticleId = articleService.write(newParam);
 		
 		String redirectUri = (String) param.get("redirectUri");
 		redirectUri = redirectUri.replace("#id", newArticleId + "");
-				
+		redirectUri = redirectUri.replace("#boardCode", board.getCode());
 		return "redirect:" + redirectUri;
 	}
 	
@@ -83,5 +89,14 @@ public class ArticleController {
 		
 		return "article/detail";
 	}
+	
+	@RequestMapping("/usr/article/{boardCode}-delete")
+	public String delete(@PathVariable("boardCode") String boardCode, Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
+		int id = Integer.parseInt((String)param.get("id"));
+		
+		articleService.delete(id);
+		return "";
+	}
+	
 	
 }

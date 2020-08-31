@@ -67,7 +67,6 @@ public class ArticleService {
 		Article article = articleDao.getArticleForPrintById(loginedMember,id);
 		
 		updateForPrintInfo(loginedMember,article);
-		/*
 		List<File> files = fileService.getFiles("article",article.getId(),"common","attachment");
 		
 		Map<String, File> filesMap = new HashMap<>();
@@ -76,12 +75,24 @@ public class ArticleService {
 			filesMap.put(file.getFileNo() + "",file);
 		}
 	
-		Util.putExtraVal(article, "file__common__attachment", filesMap);*/
+		Util.putExtraVal(article, "file__common__attachment", filesMap);
 		return article;
 	}
 
 	private void updateForPrintInfo(Member loginedMember, Article article) {
-		// TODO Auto-generated method stub
-		
+		Util.putExtraVal(article, "actorCanDelete", actorCanDelete(loginedMember, article));
+		Util.putExtraVal(article, "actorCanModify", actorCanModify(loginedMember, article));		
+	}
+
+	private Object actorCanDelete(Member loginedMember, Article article) {
+		return actorCanModify(loginedMember, article);
+	}
+
+	private Object actorCanModify(Member loginedMember, Article article) {
+		return loginedMember != null && loginedMember.getId() == article.getMemberId() ? true : false;
+	}
+
+	public void delete(int id) {
+		articleDao.delete(id);
 	}
 }

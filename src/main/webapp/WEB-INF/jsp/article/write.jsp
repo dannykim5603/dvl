@@ -172,7 +172,7 @@ h1 {
 <form method="POST" class="table-box table-box-vertical con form1" action="${board.code}-doWrite" onsubmit="ArticleWriteForm__submit(this); return false;">
 	<input type="hidden" name="fileIdsStr" />
 	<input type="hidden" name="body" />
-	<input type="hidden" name="redirectUri" value="/usr/article/${board.code}-detail?id=#id">
+	<input type="hidden" name="redirectUri" value="/usr/article/${board.code}-detail?id=#id" />
 
 	<table>
 		<colgroup>
@@ -209,7 +209,6 @@ https://www.youtube.com/watch?v=LmgWxezH7cc
 					</div>
 				</td>
 			</tr>
-			<!-- 
 			<c:forEach var="i" begin="1" end="3" step="1">
 				<c:set var="fileNo" value="${String.valueOf(i)}" />
 				<c:set var="fileExtTypeCode" value="${appConfig.getAttachmentFileExtTypeCode('article', i)}" />
@@ -222,7 +221,6 @@ https://www.youtube.com/watch?v=LmgWxezH7cc
 					</td>
 				</tr>
 			</c:forEach>
-			 -->
 			<tr class="tr-do">
 				<th>작성</th>
 				<td>
