@@ -48,9 +48,11 @@
 	
 	<update id="deleteAccount">
 		UPDATE member
-		updateDate = NOW(),
-		delDate = NOW(),
-		delStatus = 1,
+		<set>
+			updateDate = NOW(),
+			delDate = NOW(),
+			delStatus = 1,
+		</set>
 		WHERE id = #{id}
 	</update>
 </mapper>

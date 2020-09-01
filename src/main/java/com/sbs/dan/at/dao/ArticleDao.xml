@@ -61,10 +61,16 @@
 		WHERE id = #{id}
 	</update>
 	
-	<delete id="delete">
-		DELETE article
+	<update id="delete">
+		UPDATE article
+		<set>
+			updateDate = NOW(),
+			delDate = NOW(),
+			delStatus = 1,
+			displayStatus = 0
+		</set>
 		WHERE id = ${id}
-	</delete>
+	</update>
 	
 	<resultMap type="Article" id="article">
 		<id property="id" column="id" />

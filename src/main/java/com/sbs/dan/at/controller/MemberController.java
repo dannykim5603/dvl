@@ -67,7 +67,7 @@ public class MemberController {
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg",String.format("%s님 반갑습니다.", member.getNickname()));
 		
-		return "common/redirect";
+		return "redirect:"+redirectUri;
 	}
 	
 	@RequestMapping("/usr/member/doLogout")
@@ -117,8 +117,9 @@ public class MemberController {
 		Member member = memberService.getMemberById(id);
 		
 		memberService.deleteAccount(member);
+		doLogout(session, model, redirectUri);
 		
-		return "redirect: /usr/home/main";
+		return "redirect:/usr/home/main";
 	}
 	
 	@RequestMapping("/usr/member/accountInfo")

@@ -93,9 +93,11 @@ public class ArticleController {
 	@RequestMapping("/usr/article/{boardCode}-delete")
 	public String delete(@PathVariable("boardCode") String boardCode, Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
 		int id = Integer.parseInt((String)param.get("id"));
+		Board board = articleService.getBoardByCode(boardCode);
 		
 		articleService.delete(id);
-		return "";
+		
+		return "redirect:/usr/article/"+ boardCode + "-list" ;
 	}
 	
 	

@@ -46,7 +46,7 @@
 			<td class="flex">
 				<form method="POST" class="table-box con form1"
 					action="deleteAccount"
-					onsubmit="MemberModifyForm__submit(this); return false;">
+					onsubmit="accountInfo(this); return false;">
 					<button class="btn btn-primary" type="submit">회원탈퇴</button>
 				</form>
 				<button class="btn btn-info" type="button" onclick="history.back();">취소</button>
