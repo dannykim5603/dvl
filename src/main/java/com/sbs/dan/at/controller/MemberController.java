@@ -54,6 +54,7 @@ public class MemberController {
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
 			return "common/redirect";
 		}
+		
 		if (member.getLoginPw().equals(loginPw) == false) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","비밀번호가 일치하지 않습니다.");
@@ -131,17 +132,33 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/usr/member/findId")
-	public String findId(HttpSession session, Model model, String redirectUri) {
+	public String findId() {
 		return "/member/findId";
 	}
 	
 	@RequestMapping("/usr/member/doFindId")
-	public String doFindId(@RequestParam Map<String, Object> param, HttpSession session, Model model, String redirectUri) {
+	public String doFindId(@RequestParam Map<String, Object> param, Model model,String redirectUri) {
 		Map<String, Object> newParam = Util.getNewMapOf(param, "name","email");
 		String loginId = (String)memberService.findId(newParam);
-		System.out.println(loginId);
-//		return "html:<script> alert('찾으신 아이디는  " + member.getLoginId()+ "  입니다.'); location.replace('../member/login') </script>";
 		
-		return "common/redirect";
+		Member member = memberService.getMemberByLoginId(loginId);
+		if (member == null) {
+			model.addAttribute("historyBack",true);
+			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
+			return "common/redirect";
+		}
+		if (member.getDelStatus() == 1) {
+			model.addAttribute("historyBack",true);
+			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
+			return "common/redirect";
+		}
+		if (redirectUri == null || redirectUri.length() == 0) {
+			redirectUri = "/usr/home/main";
+		}
+		
+		model.addAttribute("alertMsg",String.format("찾으시는 아이디는 %s 입니다.", member.getNickname()));
+		model.addAttribute("redirectUri",redirectUri);
+		
+		return "redirect:"+redirectUri;
 	}
 }

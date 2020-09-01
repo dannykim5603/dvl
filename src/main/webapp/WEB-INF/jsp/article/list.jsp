@@ -27,12 +27,14 @@
         <colgroup>
             <col width="100" />
             <col width="200" />
+            <col width="700" />
         </colgroup>
         <thead>
             <tr>
                 <th>번호</th>
                 <th>날짜</th>
                 <th>제목</th>
+                <th>글쓴이</th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +45,7 @@
                     <td>
                         <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">${article.forPrintTitle},${article.extra.writer}</a>
                     </td>
+                    <!--
                     <td class="visible-on-sm-down">
                         <a href="${article.getDetailLink(board.code)}" class="flex flex-row-wrap flex-ai-c">
                             <span class="badge badge-primary bold margin-right-10">${article.id}</span>
@@ -53,6 +56,8 @@
                             <div class="reg-date">${article.regDate}</div>
                         </a>
                     </td>
+                    -->
+                    <td>${article.extra.writer}</td>
                 </tr>
             </c:forEach>
         </tbody>

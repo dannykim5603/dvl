@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:set var="pageTitle" value="로그인" />
+<c:set var="pageTitle" value="아이디 찾기" />
 <%@ include file="../part/head.jspf"%>
 
 <script>
 	var MemberFindIdForm__submitDone = false;
 	function MemberFindIdForm__submit(form) {
-		if (MemberFindIdForm__submit) {
+		if (MemberFindIdForm__submitDone) {
 			alert('처리중입니다.');
 			return;
 		}
@@ -17,7 +17,7 @@
 
 		if (form.name.value.length == 0) {
 			form.name.focus();
-			alert('이메일을 입력해주세요.');
+			alert('이름을 입력해주세요.');
 			return;
 		}
 		
@@ -33,9 +33,8 @@
 		MemberFindIdForm__submitDone = true;
 	}
 </script>
-<form method="POST" class="table-box con form1" action="doLogin" onsubmit="MemberFindIdForm__submit(this); return false;">
+<form method="POST" class="table-box con form1" action="doFindId" onsubmit="MemberFindIdForm__submit(this); return false;">
 	<input type="hidden" name="redirectUri" value="${param.redirectUri}">
-	<input type="hidden" name="loginPwReal">
 
 	<table>
 		<colgroup>

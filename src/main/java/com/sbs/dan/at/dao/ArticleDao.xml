@@ -24,19 +24,13 @@
 	</select>
 
 	<select id="getArticleById" resultType="Article">
-		SELECT *
-		FROM
-		article
-		WHERE
-		id = #{id}
+		SELECT * FROM article
+		WHERE id = #{id}
 	</select>
 	
 	<select id="getBoardByCode" resultType="Board">
-		SELECT *
-		FROM
-		board
-		WHERE
-		`code` = #{code}
+		SELECT * FROM board
+		WHERE `code` = #{code}
 	</select>
 
 	<insert id="write" useGeneratedKeys="true" keyProperty="id">
@@ -86,4 +80,5 @@
 			<id property="writer" column="extra__writer" />
 		</association>
 	</resultMap>
+	
 </mapper>

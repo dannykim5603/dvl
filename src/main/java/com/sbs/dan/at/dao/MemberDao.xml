@@ -42,7 +42,7 @@
 	
 	<select id="findId" resultType="String">
 		SELECT * FROM member
-		WHERE name = #{name},
+		WHERE name = #{name}
 		AND email = #{email}
 	</select>
 	

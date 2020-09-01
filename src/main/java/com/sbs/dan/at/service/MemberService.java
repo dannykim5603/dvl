@@ -50,10 +50,14 @@ public class MemberService {
 	}
 
 	public String findId(Map<String, Object> newParam) {
-		return memberDao.findId(newParam);
+		int id = Integer.parseInt(memberDao.findId(newParam));
+		Member member = getMemberById(id);
+		String loginId = member.getLoginId();
+		return loginId;
 	}
 
 	public void deleteAccount(Member member) {
 		memberDao.deleteAccount(member);
 	}
+	
 }
