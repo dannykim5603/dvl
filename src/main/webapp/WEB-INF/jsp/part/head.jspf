@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +19,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 
 <!-- 제이쿼리 불러오기 -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <!-- lodash 불러오기 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
-	
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+
 <!-- 공통(라이브러리) CSS -->
 <link rel="stylesheet" href="/resource/common.css" />
 <!-- 공통(라이브러리) JS -->
@@ -44,40 +43,43 @@ var param = ${paramJson};
 
 </head>
 <body>
-<style>
+	<style>
+.header {
+	padding: 20px;
+	background-color: black;
+	margin-bottom: 40px;
+}
 
-	.header {
-		padding: 20px;
-		background-color:black;
-		margin-bottom: 40px;	
-	}
+.header>a {
+	text-decoration: none;
+	color: crimson;
+	padding: 20px;
+}
+
+.board {
 	
-	.header > a {
-		text-decoration:none;
-		color:crimson;
-		padding:20px;
-	}
-	.board {
+}
+
+.board>a {
 	
-	}
-	.board > a{
-	}
+}
 </style>
-<div class="header" style="text-align:center">
-	
-	<a href="/usr/home/main">홈</a>
-	<c:if test="${isLogined}">
-		<a href="/usr/member/accountInfo">${loginedMember.nickname}님 환영합니다.</a>
-	</c:if>
-	<c:if test="${isLogined == false}">
- 		<a href="/usr/member/join">회원가입</a>
- 		<a href="/usr/member/login">로그인</a>
- 		<a href="/usr/member/findId">아이디 찾기</a>
-	</c:if>
-	<c:if test="${isLogined}">
-		<a href="/usr/member/modify">회원 정보 수정</a>
- 		<a href="/usr/member/doLogout">로그아웃</a>
-	</c:if>
-	<a href="/usr/article/free-list">자유게시판</a>	
-	<a href="/usr/article/notice-list">공지게시판</a>	
-</div>
+	<div class="header" style="text-align: center">
+
+		<a href="/usr/home/main">홈</a>
+		<c:if test="${isLogined}">
+			<a href="/usr/member/accountInfo">${loginedMember.nickname}님
+				환영합니다.</a>
+		</c:if>
+		<c:if test="${isLogined == false}">
+			<a href="/usr/member/join">회원가입</a>
+			<a href="/usr/member/login">로그인</a>
+			<a href="/usr/member/findId">아이디 찾기</a>
+		</c:if>
+		<c:if test="${isLogined}">
+			<a href="/usr/member/modify">회원 정보 수정</a>
+			<a href="/usr/member/doLogout">로그아웃</a>
+		</c:if>
+		<a href="/usr/article/free-list">자유게시판</a> <a
+			href="/usr/article/notice-list">공지게시판</a>
+	</div>

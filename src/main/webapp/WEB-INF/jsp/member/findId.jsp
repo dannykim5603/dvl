@@ -33,7 +33,7 @@
 		MemberFindIdForm__submitDone = true;
 	}
 </script>
-<form method="POST" class="table-box con form1" action="doFindId" onsubmit="MemberFindIdForm__submit(this); return false;">
+<form method="POST" class="table-box con form1" action="doFindLoginId" onsubmit="MemberFindIdForm__submit(this); return false;">
 	<input type="hidden" name="redirectUri" value="${param.redirectUri}">
 
 	<table>

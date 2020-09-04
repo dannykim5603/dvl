@@ -57,6 +57,7 @@
 		MemberLoginForm__submitDone = true;
 	}
 </script>
+
 <form method="POST" class="table-box con form1" action="doLogin" onsubmit="MemberLoginForm__submit(this); return false;">
 	<input type="hidden" name="redirectUri" value="${param.redirectUri}">
 	<input type="hidden" name="loginPwReal">

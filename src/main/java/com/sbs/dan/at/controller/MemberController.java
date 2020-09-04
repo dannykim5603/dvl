@@ -2,6 +2,7 @@ package com.sbs.dan.at.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,7 @@ public class MemberController {
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
 			return "common/redirect";
 		}
+		
 		if (member.getDelStatus() == 1) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
@@ -60,11 +62,13 @@ public class MemberController {
 			model.addAttribute("alertMsg","비밀번호가 일치하지 않습니다.");
 			return "common/redirect";
 		}
+		
 		session.setAttribute("loginedMemberId",member.getId());
 		
 		if (redirectUri == null || redirectUri.length() == 0) {
 			redirectUri = "/usr/home/main";
 		}
+		
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg",String.format("%s님 반갑습니다.", member.getNickname()));
 		
@@ -79,6 +83,7 @@ public class MemberController {
 			redirectUri = "/usr/home/main";
 		}
 		model.addAttribute("redirectUri",redirectUri);
+		model.addAttribute("alertMsg","안녕히 가세요");
 		
 		return "redirect:\"+redirectUri";
 	}
@@ -132,16 +137,21 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/usr/member/findId")
-	public String findId() {
+	public String findLoginId() {
 		return "/member/findId";
 	}
 	
 	@RequestMapping("/usr/member/doFindId")
-	public String doFindId(@RequestParam Map<String, Object> param, Model model,String redirectUri) {
+	public String doFindLoginId(@RequestParam Map<String, Object> param, Model model,String redirectUri) {
 		Map<String, Object> newParam = Util.getNewMapOf(param, "name","email");
-		String loginId = (String)memberService.findId(newParam);
 		
+		String loginId = (String)memberService.findId(newParam);
 		Member member = memberService.getMemberByLoginId(loginId);
+		System.out.println("=========================");
+		System.out.println("=========================");
+		System.out.println(member);
+		System.out.println("=========================");
+		System.out.println("=========================");
 		if (member == null) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
@@ -157,7 +167,7 @@ public class MemberController {
 		}
 		
 		model.addAttribute("alertMsg",String.format("찾으시는 아이디는 %s 입니다.", member.getNickname()));
-		model.addAttribute("redirectUri",redirectUri);
+//		model.addAttribute("redirectUri",redirectUri);
 		
 		return "redirect:"+redirectUri;
 	}

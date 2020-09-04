@@ -57,31 +57,7 @@
 	<a class="name">${board.name} 게시판</a>
 </div>
 <div class="article-detail-box table-box table-box-vertical con">
-	<!-- 
-	<div class ="tr">
-	<h3>제목</h3>
-	</div>
-	
-	<div class="td">
-	<h3>${article.title}</h3>
-	</div>
-	
-	<div class ="tr">
-	<h4>번호 / 날짜</h4>
-	</div>
-	
-	<div class="td">
-	<h4>${article.id} / ${article.regDate}</h4>
-	</div>
-	
-	<div class ="tr">
-	<h3>내용</h3>
-	</div>
-	
-	<div class="td">
-	<h2>${article.forPrintBody}</h2>
-	</div>
--->
+
 	<table>
 		<colgroup>
 			<col class="table-first-col" />

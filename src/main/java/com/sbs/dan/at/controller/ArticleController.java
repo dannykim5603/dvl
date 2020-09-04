@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sbs.dan.at.dto.Article;
 import com.sbs.dan.at.dto.Board;
 import com.sbs.dan.at.dto.Member;
+import com.sbs.dan.at.dto.ResultData;
 import com.sbs.dan.at.service.ArticleService;
 import com.sbs.dan.at.util.Util;
 
@@ -61,7 +62,6 @@ public class ArticleController {
 		
 		newParam.put("boardId", board.getId());
 		newParam.put("memberId", loginedMemberId);
-		
 		int newArticleId = articleService.write(newParam);
 		
 		String redirectUri = (String) param.get("redirectUri");
@@ -76,7 +76,6 @@ public class ArticleController {
 		if (listUrl == null) {
 			listUrl = "./" + boardCode + "-list";
 		}
-		
 		model.addAttribute("listUrl", listUrl);
 		
 		Board board = articleService.getBoardByCode(boardCode);
@@ -85,6 +84,7 @@ public class ArticleController {
 		int id = Integer.parseInt((String) param.get("id"));
 		Member loginedMember = (Member) req.getAttribute("loginedMember");
 		Article article = articleService.getArticleForPrintById(loginedMember,id);
+		
 		model.addAttribute("article",article);
 		
 		return "article/detail";
@@ -93,12 +93,7 @@ public class ArticleController {
 	@RequestMapping("/usr/article/{boardCode}-delete")
 	public String delete(@PathVariable("boardCode") String boardCode, Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
 		int id = Integer.parseInt((String)param.get("id"));
-		Board board = articleService.getBoardByCode(boardCode);
-		
 		articleService.delete(id);
-		
 		return "redirect:/usr/article/"+ boardCode + "-list" ;
 	}
-	
-	
 }
