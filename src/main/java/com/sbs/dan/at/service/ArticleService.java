@@ -35,21 +35,24 @@ public class ArticleService {
 		articleDao.write(newParam);
 		int id = Util.getAsInt(newParam.get("id"));
 		
-		String fileIdsStr = (String) newParam.get("fileIdsStr");
+		System.out.println("id는?? " + id);
 		
+		String fileIdsStr = (String) newParam.get("fileIdsStr");
 		if (fileIdsStr != null && fileIdsStr.length() > 0) {
 			fileIdsStr = fileIdsStr.trim();
-			
+			System.out.println("================================1");
 			if (fileIdsStr.startsWith(",")) {
 				fileIdsStr = fileIdsStr.substring(1);
+				System.out.println("================================2");
 			}
 		}
 		
 		if (fileIdsStr != null && fileIdsStr.length() > 0) {
 			fileIdsStr = fileIdsStr.trim();
-			
+			System.out.println("================================3");
 			if (fileIdsStr.equals(",")) {
 				fileIdsStr = "";
+				System.out.println("================================4");
 			}
 		}
 		
@@ -58,6 +61,7 @@ public class ArticleService {
 			
 			for (int fileId : fileIds) {
 				fileService.changeRelId(fileId,id);
+				System.out.println("=======================5");
 			}
 		}
 		return id;

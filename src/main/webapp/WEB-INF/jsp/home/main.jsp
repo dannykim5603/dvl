@@ -18,8 +18,8 @@
 	}
 </style>
 		<img src="/resource/img/dvl_logo_v1.png" style="width:100px;"/>
-<h2 style="background-color:black"> > Daily VilLains < </h2>
-<h1> 알파 테스트 (v.0.0.1.8)</h1>
+<h2 style="background-color:black"> > Daily VilLain's < </h2>
+<h1> 알파 테스트 (v.0.0.2.0)</h1>
 	<ul class="option-list">
 		<li> - 회원가입[○]</li>
 		<li> - 로그인[○]</li>
@@ -33,7 +33,7 @@
 		<li> - 공지/자유게시물 상세페이지[○]</li>
 		<li> - 자유 공지 게시물 작성[○]</li>
 		<li> - 공지/자유게시물 작성시 이미지 파일 첨부[○]</li>
-		<li> - 공지/자유게시물 상세페이지에서 첨부된 이미지파일이 있다면 노출[ ]</li>
+		<li> - 공지/자유게시물 상세페이지에서 첨부된 이미지파일이 있다면 노출[○]</li>
 		<li> - 회원탈퇴 (delStatus 를 1로 , 해당 아이디로 다른 사람이 새로 가입할 수 없다.)[○]</li>
 		<li> - 리팩토링<br>
 			<a href=""> - 중복된 로직 제거 </a>

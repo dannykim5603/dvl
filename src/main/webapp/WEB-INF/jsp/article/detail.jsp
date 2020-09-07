@@ -120,8 +120,18 @@
 	<div class="btn-box con margin-top-20" style="float: right">
 		<a href="${listUrl}" class="btn btn-info">목록</a>
 	</div>
-
-
+	<c:if test="${isLogined}">
+	<div class="reply">
+	<h2 class="con">댓글</h2>
+		<script>
+			function WriteReplyForm__submit(form){
+				if (isNowLoading()){
+					alert('처리중입니다.');
+					}
+				}
+		</script>
+	</div>
+	</c:if>
 </div>
 
 <%@ include file="../part/foot.jspf"%>

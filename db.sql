@@ -97,3 +97,29 @@ ALTER TABLE `file` ADD UNIQUE INDEX (`relId`, `relTypeCode`, `typeCode`, `type2C
 
 # 파일 테이블의 기존 인덱스에 유니크가 걸려 있어서 relId가 0 인 동안 충돌이 발생할 수 있다. 그래서 일반 인덱스로 바꾼다.
 ALTER TABLE `file` DROP INDEX `relId`, ADD INDEX (`relId` , `relTypeCode` , `typeCode` , `type2Code` , `fileNo`); 
+
+# article 테이블 세팅
+CREATE TABLE reply (
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME,
+    updateDate DATETIME,
+    memberId INT(10) UNSIGNED NOT NULL,
+    articleId INT(10) UNSIGNED NOT NULL,
+    delDate DATETIME,
+	delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+	displayStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+    `body` LONGTEXT NOT NULL
+);
+
+ALTER TABLE `reply` ADD COLUMN `relTypeCode` CHAR(50) NOT NULL AFTER `memberId`,
+CHANGE `articleId` `relId` INT(10) UNSIGNED NOT NULL;
+ALTER TABLE `at`.`reply` ADD INDEX (`relId`, `relTypeCode`);
+UPDATE reply
+SET relTypeCode = 'article'
+WHERE relTypeCode = '';
+
+INSERT INTO `board`
+SET regDate = NOW(),
+updateDate = NOW(),
+`code` = 'vil',
+`name` = '빌런';

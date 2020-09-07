@@ -223,15 +223,20 @@ https://www.youtube.com/watch?v=LmgWxezH7cc
 		
 		startUploadFiles(function(data) {
 			var fileIdsStr = '';
+			
 			if (data && data.body && data.body.fileIdsStr) {
 				fileIdsStr = data.body.fileIdsStr;
 			}
+			
 			form.fileIdsStr.value = fileIdsStr;
 			form.file__article__0__common__attachment__1.value = '';
 			form.file__article__0__common__attachment__2.value = '';
+			form.file__article__0__common__attachment__3.value = '';
+			
 			if (bodyEditor.inBodyFileIdsStr) {
 				form.fileIdsStr.value += bodyEditor.inBodyFileIdsStr;
 			}
+			
 			form.submit();
 			ArticleWriteForm__submitDone = true;
 		});

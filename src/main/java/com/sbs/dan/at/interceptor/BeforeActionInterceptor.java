@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.sbs.dan.at.config.AppConfig;
 import com.sbs.dan.at.dto.Member;
 import com.sbs.dan.at.service.MemberService;
 import com.sbs.dan.at.util.Util;
@@ -22,6 +23,10 @@ public class BeforeActionInterceptor implements HandlerInterceptor{
 	private String siteName;
 	@Value("${spring.profiles.active}")
 	private String activeProfile;
+	
+	@Autowired
+	private AppConfig appConfig;
+	
 	
 	@Autowired
 	private MemberService memberService;
@@ -95,7 +100,9 @@ public class BeforeActionInterceptor implements HandlerInterceptor{
 		request.setAttribute("loginedMemberId", loginedMemberId);
 		request.setAttribute("isLogined", isLogined);
 		request.setAttribute("loginedMember", loginedMember);
-
+		
+		request.setAttribute("appConfig", appConfig);
+		
 		request.setAttribute("activeProfile", activeProfile);
 		
 		return HandlerInterceptor.super.preHandle(request,response,handler);

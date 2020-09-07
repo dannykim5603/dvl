@@ -2,7 +2,6 @@ package com.sbs.dan.at.controller;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,12 +135,12 @@ public class MemberController {
 		return "/member/accountInfo";
 	}
 	
-	@RequestMapping("/usr/member/findId")
+	@RequestMapping("/usr/member/findLoginId")
 	public String findLoginId() {
 		return "/member/findId";
 	}
 	
-	@RequestMapping("/usr/member/doFindId")
+	@RequestMapping("/usr/member/doFindLoginId")
 	public String doFindLoginId(@RequestParam Map<String, Object> param, Model model,String redirectUri) {
 		Map<String, Object> newParam = Util.getNewMapOf(param, "name","email");
 		
@@ -152,6 +151,7 @@ public class MemberController {
 		System.out.println(member);
 		System.out.println("=========================");
 		System.out.println("=========================");
+		
 		if (member == null) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");

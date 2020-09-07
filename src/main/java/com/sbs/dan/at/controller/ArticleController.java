@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sbs.dan.at.dto.Article;
 import com.sbs.dan.at.dto.Board;
 import com.sbs.dan.at.dto.Member;
-import com.sbs.dan.at.dto.ResultData;
 import com.sbs.dan.at.service.ArticleService;
 import com.sbs.dan.at.util.Util;
 
@@ -56,7 +55,7 @@ public class ArticleController {
 		
 		model.addAttribute("board",board);
 		
-		Map<String, Object> newParam = Util.getNewMapOf(param, "title", "body");
+		Map<String, Object> newParam = Util.getNewMapOf(param, "title", "body", "fileIdsStr");
 		
 		int loginedMemberId = (int)req.getAttribute("loginedMemberId");
 		
