@@ -157,17 +157,19 @@ public class MemberController {
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
 			return "common/redirect";
 		}
+		
 		if (member.getDelStatus() == 1) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
 			return "common/redirect";
 		}
+		
 		if (redirectUri == null || redirectUri.length() == 0) {
 			redirectUri = "/usr/home/main";
 		}
 		
+		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg",String.format("찾으시는 아이디는 %s 입니다.", member.getNickname()));
-//		model.addAttribute("redirectUri",redirectUri);
 		
 		return "redirect:"+redirectUri;
 	}

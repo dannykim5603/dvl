@@ -34,7 +34,6 @@
                 <th>번호</th>
                 <th>날짜</th>
                 <th>제목</th>
-                <th>글쓴이</th>
             </tr>
         </thead>
         <tbody>
@@ -43,7 +42,7 @@
                     <td>${article.id}</td>
                     <td>${article.regDate}</td>
                     <td>
-                        <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">${article.forPrintTitle},${article.extra.writer}</a>
+                        <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">${article.forPrintTitle}</a>
                     </td>
                     <!--
                     <td class="visible-on-sm-down">
@@ -57,7 +56,6 @@
                         </a>
                     </td>
                     -->
-                    <td>${article.extra.writer}</td>
                 </tr>
             </c:forEach>
         </tbody>

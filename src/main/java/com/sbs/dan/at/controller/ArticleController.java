@@ -29,6 +29,9 @@ public class ArticleController {
 		model.addAttribute("board",board);
 		
 		List<Article> articles = articleService.getArticlesForList(board.getId());
+		
+		System.out.println("article은??"+articles);
+		
 		model.addAttribute("articles",articles);
 
 		return "article/list";
@@ -83,7 +86,7 @@ public class ArticleController {
 		int id = Integer.parseInt((String) param.get("id"));
 		Member loginedMember = (Member) req.getAttribute("loginedMember");
 		Article article = articleService.getArticleForPrintById(loginedMember,id);
-		
+		System.out.println("article은??" +article);
 		model.addAttribute("article",article);
 		
 		return "article/detail";

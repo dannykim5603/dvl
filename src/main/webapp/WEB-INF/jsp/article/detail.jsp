@@ -72,6 +72,10 @@
 				<td>${article.regDate}</td>
 			</tr>
 			<tr>
+				<th>작성자</th>
+				<td>${article.extra.writer}</td>
+			</tr>
+			<tr>
 				<th>제목</th>
 				<td>${article.title}</td>
 			</tr>
