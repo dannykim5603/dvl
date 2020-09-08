@@ -68,8 +68,7 @@ var param = ${paramJson};
 
 		<a href="/usr/home/main">홈</a>
 		<c:if test="${isLogined}">
-			<a href="/usr/member/accountInfo">${loginedMember.nickname}님
-				환영합니다.</a>
+			<a href="/usr/member/accountInfo">${loginedMember.nickname}님 환영합니다.</a>
 		</c:if>
 		<c:if test="${isLogined == false}">
 			<a href="/usr/member/join">회원가입</a>
