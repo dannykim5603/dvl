@@ -113,11 +113,11 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://at.iu.gy:8080/manager/text</url>
+					<url>http://service.n32.st.dailyvillains.site:8080/manager/text</url>
 					<server>TomcatServer</server>
 					<path>/</path>
 					<username>deployer</username>
-					<password>sbsst24002424</password>
+					<password>ehddus05!</password>
 				</configuration>
 			</plugin>
 			<plugin>
