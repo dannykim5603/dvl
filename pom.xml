@@ -116,7 +116,7 @@
 					<url>http://service.n32.st.dailyvillains.site:8080/manager/text</url>
 					<server>TomcatServer</server>
 					<path>/</path>
-					<username>deployer</username>
+					<username>admin</username>
 					<password>ehddus05!</password>
 				</configuration>
 			</plugin>
