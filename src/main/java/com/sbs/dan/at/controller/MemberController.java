@@ -80,7 +80,7 @@ public class MemberController {
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg","안녕히 가세요");
 		
-		return "redirect:\"+redirectUri";
+		return "redirect:"+redirectUri;
 	}
 	
 	@RequestMapping("/usr/member/modify")
