@@ -47,6 +47,10 @@
 				<td>${member.phoneNo}</td>
 			</tr>
 			<tr>
+				<th>레벨</th>
+				<td>${member.level}</td>
+			</tr>
+			<tr>
 				<th></th>
 				<td class="flex">
 					<form method="POST" class="table-box con form1"
