@@ -113,11 +113,9 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://service.n32.st.dailyvillains.site:8080/manager/text</url>
-					<server>TomcatServer</server>
+					<url>http://service.st.dailyvillains.site:8080/manager/text</url>
+					<server>service_st_dailyvillains_site__manager_text</server>
 					<path>/</path>
-					<username>admin</username>
-					<password>ehddus05!</password>
 				</configuration>
 			</plugin>
 			<plugin>
