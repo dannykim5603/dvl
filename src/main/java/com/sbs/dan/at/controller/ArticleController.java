@@ -16,17 +16,25 @@ import com.sbs.dan.at.dto.Article;
 import com.sbs.dan.at.dto.Board;
 import com.sbs.dan.at.dto.Member;
 import com.sbs.dan.at.service.ArticleService;
+import com.sbs.dan.at.service.MemberService;
 import com.sbs.dan.at.util.Util;
 
 @Controller
 public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
-
+	@Autowired
+	private MemberService memberService;
+	
 	@RequestMapping("/usr/article/{boardCode}-list")
-	public String showList(Model model, @PathVariable("boardCode") String boardCode) {
+	public String showList(Model model, @PathVariable("boardCode") String boardCode, HttpServletRequest req) {
 		Board board = articleService.getBoardByCode(boardCode);
 		model.addAttribute("board",board);
+		
+		int loginedMemberId = (int)req.getAttribute("loginedMemberId");
+		Member member = memberService.getMemberById(loginedMemberId);
+		
+		model.addAttribute("member",member);
 		
 		List<Article> articles = articleService.getArticlesForList(board.getId());
 		

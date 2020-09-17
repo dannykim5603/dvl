@@ -62,7 +62,12 @@
     </table>
 </div>
 <div class="btn-box con margin-top-20">
+	<c:if test="${board.code == 'notice' && member.level == 10} ">
     <a class="btn btn-primary" href="./${board.code}-write" style="background:crimson">글쓰기</a>
+	</c:if>
+	<c:if test="${board.code != 'notice'}">
+    <a class="btn btn-primary" href="./${board.code}-write" style="background:crimson">글쓰기</a>
+	</c:if>
 </div>
 
 <%@ include file="../part/foot.jspf" %>
