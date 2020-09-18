@@ -66,6 +66,14 @@
 		WHERE id = ${id}
 	</update>
 	
+	<update id="hit">
+		UPDATE article
+		<set>
+			hit = hit + 1 
+		</set>
+		WHERE id = #{id}
+	</update>
+	
 	<resultMap type="Article" id="article">
 		<id property="id" column="id" />
 		<id property="regDate" column="regDate" />
@@ -76,6 +84,7 @@
 		<id property="body" column="body" />
 		<id property="memberId" column="memberId" />
 		<id property="boardId" column="boardId" />
+		<id property="hit" column="hit" />
 		<association property="extra" javaType="map">
 			<id property="writer" column="extra__writer" />
 		</association>

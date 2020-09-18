@@ -101,4 +101,8 @@ public class ArticleService {
 	public void delete(int id) {
 		articleDao.delete(id);
 	}
+
+	public void hit(int id) {
+		articleDao.hit(id);
+	}
 }

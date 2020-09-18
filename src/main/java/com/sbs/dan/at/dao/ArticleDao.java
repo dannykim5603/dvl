@@ -22,4 +22,5 @@ public interface ArticleDao {
 
 	void delete(int id);
 
+	void hit(int id);
 }

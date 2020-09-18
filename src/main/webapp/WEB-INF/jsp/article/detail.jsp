@@ -68,8 +68,12 @@
 				<td>${article.id}</td>
 			</tr>
 			<tr>
-				<th>날짜</th>
+				<th>작성일</th>
 				<td>${article.regDate}</td>
+			</tr>
+			<tr>
+				<th>조회수</th>
+				<td>${article.hit}</td>
 			</tr>
 			<tr>
 				<th>작성자</th>
@@ -87,44 +91,49 @@
 			<tr>
 				<c:forEach var="i" begin="1" end="3" step="1">
 					<c:set var="fileNo" value="${String.valueOf(i)}" />
-					<c:set var="file" value="${article.extra.file__common__attachment[fileNo]}" />
+					<c:set var="file"
+						value="${article.extra.file__common__attachment[fileNo]}" />
 					<c:if test="${file != null}">
 						<tr>
 							<th>첨부파일 ${fileNo}</th>
-							<td>
-								<c:if test="${file.fileExtTypeCode == 'video'}">
+							<td><c:if test="${file.fileExtTypeCode == 'video'}">
 									<div class="video-box">
-										<video controls	src="/usr/file/streamVideo?id=${file.id}&updateDate=${file.updateDate}"></video>
+										<video controls
+											src="/usr/file/streamVideo?id=${file.id}&updateDate=${file.updateDate}"></video>
 									</div>
-								</c:if> 
-								<c:if test="${file.fileExtTypeCode == 'img'}">
+								</c:if> <c:if test="${file.fileExtTypeCode == 'img'}">
 									<div class="img-box img-box-auto">
-										<img src="/usr/file/img?id=${file.id}&updateDate=${file.updateDate}" alt="" />
+										<img
+											src="/usr/file/img?id=${file.id}&updateDate=${file.updateDate}"
+											alt="" />
 									</div>
-								</c:if>
-							</td>
+								</c:if></td>
 						</tr>
 					</c:if>
 				</c:forEach>
 			</tr>
 			<tr>
 				<th>비고</th>
-				<td>
-				<c:if test="${article.extra.actorCanModify}">
-						<a class="btn btn-info"	href="${board.code}-modify?id=${article.id}&listUrl=${Util.getUriEncoded(listUrl)}">수정</a>
-				</c:if>
-				<c:if test="${article.extra.actorCanDelete}">
-						<a class="btn btn-danger" href="${board.code}-delete?id=${article.id}" onclick="if ( confirm('삭제하시겠습니까?') == false ) return false;">삭제</a>
-				</c:if>
-				</td>
+				<td><c:if test="${article.extra.actorCanModify}">
+						<a class="btn btn-info"
+							href="${board.code}-modify?id=${article.id}&listUrl=${Util.getUriEncoded(listUrl)}">수정</a>
+					</c:if> <c:if test="${article.extra.actorCanDelete}">
+						<a class="btn btn-danger"
+							href="${board.code}-delete?id=${article.id}"
+							onclick="if ( confirm('삭제하시겠습니까?') == false ) return false;">삭제</a>
+					</c:if></td>
 			</tr>
 		</tbody>
 	</table>
+</div>
 
-	<div class="btn-box con margin-top-20" style="float: right">
-		<a href="${listUrl}" class="btn btn-info">목록</a>
-	</div>
-	<c:if test="${isLogined}">
+<div class="btn-box con margin-top-20" style="float: right">
+	<a href="${listUrl}" class="btn btn-info">목록</a>
+</div>
+<br>
+<br>
+<br>
+<c:if test="${isLogined}">
 	<h2 class="con">댓글 작성</h2>
 
 	<script>
@@ -142,13 +151,16 @@
 			var startUploadFiles = function(onSuccess) {
 				var needToUpload = false;
 				if (needToUpload == false) {
-					needToUpload = form.file__reply__0__common__attachment__1 && form.file__reply__0__common__attachment__1.value.length > 0;
+					needToUpload = form.file__reply__0__common__attachment__1
+							&& form.file__reply__0__common__attachment__1.value.length > 0;
 				}
 				if (needToUpload == false) {
-					needToUpload = form.file__reply__0__common__attachment__2 && form.file__reply__0__common__attachment__2.value.length > 0;
+					needToUpload = form.file__reply__0__common__attachment__2
+							&& form.file__reply__0__common__attachment__2.value.length > 0;
 				}
 				if (needToUpload == false) {
-					needToUpload = form.file__reply__0__common__attachment__3 && form.file__reply__0__common__attachment__3.value.length > 0;
+					needToUpload = form.file__reply__0__common__attachment__3
+							&& form.file__reply__0__common__attachment__3.value.length > 0;
 				}
 				if (needToUpload == false) {
 					onSuccess();
@@ -204,9 +216,10 @@
 		}
 	</script>
 
-	<form class="table-box table-box-vertical con form1" onsubmit="WriteReplyForm__submit(this); return false;">
-		<input type="hidden" name="relTypeCode" value="article" />
-		<input type="hidden" name="relId" value="${article.id}" />
+	<form class="table-box table-box-vertical con form1"
+		onsubmit="WriteReplyForm__submit(this); return false;">
+		<input type="hidden" name="relTypeCode" value="article" /> <input
+			type="hidden" name="relId" value="${article.id}" />
 
 		<table>
 			<colgroup>
@@ -217,26 +230,30 @@
 					<th>내용</th>
 					<td>
 						<div class="form-control-box">
-							<textarea maxlength="300" name="body" placeholder="내용을 입력해주세요." class="height-300"></textarea>
+							<textarea maxlength="300" name="body" placeholder="내용을 입력해주세요."
+								class="height-300"></textarea>
 						</div>
 					</td>
 				</tr>
 				<c:forEach var="i" begin="1" end="3" step="1">
 					<c:set var="fileNo" value="${String.valueOf(i)}" />
-					<c:set var="fileExtTypeCode" value="${appConfig.getAttachmentFileExtTypeCode('reply', i)}" />
+					<c:set var="fileExtTypeCode"
+						value="${appConfig.getAttachmentFileExtTypeCode('reply', i)}" />
 					<tr>
-						<th>첨부${fileNo} ${appConfig.getAttachmentFileExtTypeDisplayName('reply', i)}</th>
+						<th>첨부${fileNo}
+							${appConfig.getAttachmentFileExtTypeDisplayName('reply', i)}</th>
 						<td>
 							<div class="form-control-box">
-								<input type="file" accept="${appConfig.getAttachemntFileInputAccept('article', i)}" name="file__reply__0__common__attachment__${fileNo}">
+								<input type="file"
+									accept="${appConfig.getAttachemntFileInputAccept('article', i)}"
+									name="file__reply__0__common__attachment__${fileNo}">
 							</div>
 						</td>
 					</tr>
 				</c:forEach>
 				<tr class="tr-do">
 					<th>작성</th>
-					<td>
-						<input class="btn btn-primary" type="submit" value="작성">
+					<td><input class="btn btn-primary" type="submit" value="작성">
 					</td>
 				</tr>
 			</tbody>
@@ -247,15 +264,17 @@
 <h2 class="con">댓글 목록</h2>
 
 <style>
-.reply-list-box .media-box > * {
-    margin-top:10px;    
+.reply-list-box .media-box>* {
+	margin-top: 10px;
 }
-.reply-list-box .media-box > *:empty {
-    display:none;
+
+.reply-list-box .media-box>*:empty {
+	display: none;
 }
-.reply-list-box .media-box > :first-chidl {
-    margin-top:10px;
-} 
+
+.reply-list-box .media-box>:first-chidl {
+	margin-top: 10px;
+}
 </style>
 
 <div class="reply-list-box table-box table-box-data con">
@@ -284,26 +303,31 @@
 
 <style>
 .reply-modify-form-modal-actived, reply-modify-form-modal-actived>body {
-    overflow: hidden;
+	overflow: hidden;
 }
+
 .reply-modify-form-modal {
-    display: none;
+	display: none;
 }
+
 .reply-modify-form-modal-actived .reply-modify-form-modal {
-    display: flex;
+	display: flex;
 }
+
 .reply-modify-form-modal .video-box {
-    width: 100px;
+	width: 100px;
 }
+
 .reply-modify-form-modal .img-box {
-    width: 100px;
+	width: 100px;
 }
 </style>
 
 <div class="popup-1 reply-modify-form-modal">
 	<div>
 		<h1>댓글 수정</h1>
-		<form action="" class="form1 padding-10 table-box table-box-vertical" onsubmit="ReplyList__submitModifyForm(this); return false;">
+		<form action="" class="form1 padding-10 table-box table-box-vertical"
+			onsubmit="ReplyList__submitModifyForm(this); return false;">
 			<input type="hidden" name="id" />
 			<table>
 				<colgroup>
@@ -321,16 +345,21 @@
 
 					<c:forEach var="i" begin="1" end="3" step="1">
 						<c:set var="fileNo" value="${String.valueOf(i)}" />
-						<c:set var="fileExtTypeCode" value="${appConfig.getAttachmentFileExtTypeCode('article', i)}" />
+						<c:set var="fileExtTypeCode"
+							value="${appConfig.getAttachmentFileExtTypeCode('article', i)}" />
 
 						<tr>
 							<th>첨부${fileNo}</th>
 							<td>
 								<div class="form-control-box">
-									<input type="file" accept="${appConfig.getAttachemntFileInputAccept('article', i)}" data-name="file__reply__0__common__attachment__${fileNo}">
+									<input type="file"
+										accept="${appConfig.getAttachemntFileInputAccept('article', i)}"
+										data-name="file__reply__0__common__attachment__${fileNo}">
 								</div>
-								<div style="width: 100%" class="video-box video-box-file-${fileNo}"></div>
-								<div style="width: 100%" class="img-box img-box-auto img-box-file-${fileNo}"></div>
+								<div style="width: 100%"
+									class="video-box video-box-file-${fileNo}"></div>
+								<div style="width: 100%"
+									class="img-box img-box-auto img-box-file-${fileNo}"></div>
 							</td>
 						</tr>
 
@@ -338,9 +367,9 @@
 							<th>첨부${fileNo} 삭제</th>
 							<td>
 								<div class="form-control-box">
-									<label>
-										<input type="checkbox" data-name="deleteFile__reply__0__common__attachment__${fileNo}" value="Y" />
-										삭제
+									<label> <input type="checkbox"
+										data-name="deleteFile__reply__0__common__attachment__${fileNo}"
+										value="Y" /> 삭제
 									</label>
 								</div>
 							</td>
@@ -350,7 +379,8 @@
 						<th>수정</th>
 						<td>
 							<button class="btn btn-primary" type="submit">수정</button>
-							<button class="btn btn-info" type="button" onclick="ReplyList__hideModifyFormModal();">취소</button>
+							<button class="btn btn-info" type="button"
+								onclick="ReplyList__hideModifyFormModal();">취소</button>
 						</td>
 					</tr>
 				</tbody>
@@ -380,9 +410,12 @@
 		var fileInput1 = form['file__reply__' + id + '__common__attachment__1'];
 		var fileInput2 = form['file__reply__' + id + '__common__attachment__2'];
 		var fileInput3 = form['file__reply__' + id + '__common__attachment__3'];
-		var deleteFileInput1 = form["deleteFile__reply__" + id + "__common__attachment__1"];
-		var deleteFileInput2 = form["deleteFile__reply__" + id + "__common__attachment__2"];
-		var deleteFileInput3 = form["deleteFile__reply__" + id + "__common__attachment__3"];
+		var deleteFileInput1 = form["deleteFile__reply__" + id
+				+ "__common__attachment__1"];
+		var deleteFileInput2 = form["deleteFile__reply__" + id
+				+ "__common__attachment__2"];
+		var deleteFileInput3 = form["deleteFile__reply__" + id
+				+ "__common__attachment__3"];
 		if (fileInput1 && deleteFileInput1 && deleteFileInput1.checked) {
 			fileInput1.value = '';
 		}
@@ -449,19 +482,36 @@
 		var onModifyReplyComplete = function(data) {
 			if (data.resultCode && data.resultCode.substr(0, 2) == 'S-') {
 				// 성공시에는 기존에 그려진 내용을 수정해야 한다.!!
-				$('.reply-list-box tbody > tr[data-id="' + id + '"]').data('data-originBody', body);
-				$('.reply-list-box tbody > tr[data-id="' + id + '"] .reply-body').empty().append(getHtmlEncoded(body).replaceAll('\n', '<br>'));
-				$('.reply-list-box tbody > tr[data-id="' + id + '"] .video-box').empty();
-				$('.reply-list-box tbody > tr[data-id="' + id + '"] .img-box').empty();
+				$('.reply-list-box tbody > tr[data-id="' + id + '"]').data(
+						'data-originBody', body);
+				$(
+						'.reply-list-box tbody > tr[data-id="' + id
+								+ '"] .reply-body').empty().append(
+						getHtmlEncoded(body).replaceAll('\n', '<br>'));
+				$('.reply-list-box tbody > tr[data-id="' + id + '"] .video-box')
+						.empty();
+				$('.reply-list-box tbody > tr[data-id="' + id + '"] .img-box')
+						.empty();
 				if (data && data.body && data.body.file__common__attachment) {
 					for ( var fileNo in data.body.file__common__attachment) {
 						var file = data.body.file__common__attachment[fileNo];
 						if (file.fileExtTypeCode == 'video') {
-							var html = '<video preload="none" controls src="/usr/file/streamVideo?id=' + file.id + '&updateDate=' + file.updateDate + '">video not supported</video>';
-							$('.reply-list-box tbody > tr[data-id="' + id + '"] [data-file-no="' + fileNo + '"].video-box').append(html);
+							var html = '<video preload="none" controls src="/usr/file/streamVideo?id='
+									+ file.id
+									+ '&updateDate='
+									+ file.updateDate
+									+ '">video not supported</video>';
+							$(
+									'.reply-list-box tbody > tr[data-id="' + id
+											+ '"] [data-file-no="' + fileNo
+											+ '"].video-box').append(html);
 						} else {
-							var html = '<img src="/usr/file/img?id=' + file.id + '&updateDate=' + file.updateDate + '">';
-							$('.reply-list-box tbody > tr[data-id="' + id + '"] [data-file-no="' + fileNo + '"].img-box').append(html);
+							var html = '<img src="/usr/file/img?id=' + file.id
+									+ '&updateDate=' + file.updateDate + '">';
+							$(
+									'.reply-list-box tbody > tr[data-id="' + id
+											+ '"] [data-file-no="' + fileNo
+											+ '"].img-box').append(html);
 						}
 					}
 				}
@@ -494,15 +544,18 @@
 		for (var fileNo = 1; fileNo <= 3; fileNo++) {
 			$('.reply-modify-form-modal .video-box-file-' + fileNo).empty();
 			var videoName = 'reply__' + id + '__common__attachment__' + fileNo;
-			var $videoBox = $('.reply-list-box [data-video-name="' + videoName + '"]');
+			var $videoBox = $('.reply-list-box [data-video-name="' + videoName
+					+ '"]');
 			if ($videoBox.length > 0) {
-				$('.reply-modify-form-modal .video-box-file-' + fileNo).append($videoBox.html());
+				$('.reply-modify-form-modal .video-box-file-' + fileNo).append(
+						$videoBox.html());
 			}
 			$('.reply-modify-form-modal .img-box-file-' + fileNo).empty();
 			var imgName = 'reply__' + id + '__common__attachment__' + fileNo;
 			var $imgBox = $('.reply-list-box [data-img-name="' + imgName + '"]');
 			if ($imgBox.length > 0) {
-				$('.reply-modify-form-modal .img-box-file-' + fileNo).append($imgBox.html());
+				$('.reply-modify-form-modal .img-box-file-' + fileNo).append(
+						$imgBox.html());
 			}
 		}
 		form.id.value = id;
@@ -533,10 +586,10 @@
 		}
 	}
 	function ReplyList__delete(el) {
-	    if (isNowLoading()) {
-            alert('처리중입니다.');
-        }
-		
+		if (isNowLoading()) {
+			alert('처리중입니다.');
+		}
+
 		if (confirm('삭제 하시겠습니까?') == false) {
 			return;
 		}
@@ -546,10 +599,10 @@
 		$.post('./../reply/doDeleteReplyAjax', {
 			id : id
 		}, function(data) {
-		    if ( data.msg ) {
-                alert(data.msg);
-            }
-			if ( data.resultCode.substr(0, 2) == 'S-' ) {
+			if (data.msg) {
+				alert(data.msg);
+			}
+			if (data.resultCode.substr(0, 2) == 'S-') {
 				$tr.remove();
 			}
 			endLoading();
@@ -558,22 +611,28 @@
 	function ReplyList__getMediaHtml(reply) {
 		var html = '';
 		for (var fileNo = 1; fileNo <= 3; fileNo++) {
-            var file = null;
-            if (reply.extra.file__common__attachment && reply.extra.file__common__attachment[fileNo]) {
-                file = reply.extra.file__common__attachment[fileNo];
-            }
-            html += '<div class="video-box" data-video-name="reply__' + reply.id + '__common__attachment__' + fileNo + '" data-file-no="' + fileNo + '">';
-            if (file && file.fileExtTypeCode == 'video') {
-                html += '<video  preload="none" controls src="/usr/file/streamVideo?id=' + file.id + '&updateDate=' + file.updateDate + '"></video>';
-            }
-            html += '</div>';
-            html += '<div class="img-box img-box-auto" data-img-name="reply__' + reply.id + '__common__attachment__' + fileNo + '" data-file-no="' + fileNo + '">';
-            if (file && file.fileExtTypeCode == 'img') {
-                html += '<img src="/usr/file/img?id=' + file.id + '&updateDate=' + file.updateDate + '">';
-            }
-            html += '</div>';
-        }
-        return '<div class="media-box">' + html + "</div>";
+			var file = null;
+			if (reply.extra.file__common__attachment
+					&& reply.extra.file__common__attachment[fileNo]) {
+				file = reply.extra.file__common__attachment[fileNo];
+			}
+			html += '<div class="video-box" data-video-name="reply__' + reply.id + '__common__attachment__' + fileNo + '" data-file-no="' + fileNo + '">';
+			if (file && file.fileExtTypeCode == 'video') {
+				html += '<video  preload="none" controls src="/usr/file/streamVideo?id='
+						+ file.id
+						+ '&updateDate='
+						+ file.updateDate
+						+ '"></video>';
+			}
+			html += '</div>';
+			html += '<div class="img-box img-box-auto" data-img-name="reply__' + reply.id + '__common__attachment__' + fileNo + '" data-file-no="' + fileNo + '">';
+			if (file && file.fileExtTypeCode == 'img') {
+				html += '<img src="/usr/file/img?id=' + file.id
+						+ '&updateDate=' + file.updateDate + '">';
+			}
+			html += '</div>';
+		}
+		return '<div class="media-box">' + html + "</div>";
 	}
 	function ReplyList__drawReply(reply) {
 		var html = '';
@@ -594,30 +653,32 @@
 		}
 		html += '</td>';
 		html += '<td class="visible-on-sm-down">';
-    html += '<div class="flex flex-row-wrap flex-ai-c">';
-        html += '<span class="badge badge-primary bold margin-right-10">' + reply.id + '</span>';
-        html += '<div class="writer">' + reply.extra.writer + '</div>';
-        html += '&nbsp;|&nbsp;';
-        html += '<div class="reg-date">' + reply.regDate + '</div>';
-        html += '<div class="width-100p"></div>';
-        html += '<div class="body flex-1-0-0 margin-top-10 reply-body">' + reply.forPrintBody + '</div>';
-        html += ReplyList__getMediaHtml(reply);
-        html += '</div>';
-        html += '<div class="margin-top-10 btn-inline-box">';
-        if (reply.extra.actorCanDelete) {
-            html += '<button class="btn btn-danger" type="button" onclick="ReplyList__delete(this);">삭제</button>';
-        }
-        if (reply.extra.actorCanModify) {
-            html += '<button class="btn btn-info" type="button" onclick="ReplyList__showModifyFormModal(this);">수정</button>';
-        }
-        html += '</div>';
-        html += '</td>';
-        html += '</tr>';
-        var $tr = $(html);
-        $tr.data('data-originBody', reply.body);
-        ReplyList__$tbody.prepend($tr);
-    }
-    ReplyList__loadMore();
+		html += '<div class="flex flex-row-wrap flex-ai-c">';
+		html += '<span class="badge badge-primary bold margin-right-10">'
+				+ reply.id + '</span>';
+		html += '<div class="writer">' + reply.extra.writer + '</div>';
+		html += '&nbsp;|&nbsp;';
+		html += '<div class="reg-date">' + reply.regDate + '</div>';
+		html += '<div class="width-100p"></div>';
+		html += '<div class="body flex-1-0-0 margin-top-10 reply-body">'
+				+ reply.forPrintBody + '</div>';
+		html += ReplyList__getMediaHtml(reply);
+		html += '</div>';
+		html += '<div class="margin-top-10 btn-inline-box">';
+		if (reply.extra.actorCanDelete) {
+			html += '<button class="btn btn-danger" type="button" onclick="ReplyList__delete(this);">삭제</button>';
+		}
+		if (reply.extra.actorCanModify) {
+			html += '<button class="btn btn-info" type="button" onclick="ReplyList__showModifyFormModal(this);">수정</button>';
+		}
+		html += '</div>';
+		html += '</td>';
+		html += '</tr>';
+		var $tr = $(html);
+		$tr.data('data-originBody', reply.body);
+		ReplyList__$tbody.prepend($tr);
+	}
+	ReplyList__loadMore();
 </script>
 
 <%@ include file="../part/foot.jspf"%>

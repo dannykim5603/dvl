@@ -24,6 +24,7 @@ public class Article {
 	private int displayStatus;
 	private String title;
 	private String body;
+	private int hit;
 	private Map<String,Object> extra;
 	
 	@JsonProperty("forPrintBody")

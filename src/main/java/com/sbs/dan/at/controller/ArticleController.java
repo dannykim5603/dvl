@@ -92,10 +92,12 @@ public class ArticleController {
 		model.addAttribute("board",board);
 		
 		int id = Integer.parseInt((String) param.get("id"));
+		articleService.hit(id);
+
 		Member loginedMember = (Member) req.getAttribute("loginedMember");
 		Article article = articleService.getArticleForPrintById(loginedMember,id);
-		System.out.println("article은??" +article);
 		model.addAttribute("article",article);
+
 		
 		return "article/detail";
 	}

@@ -24,20 +24,6 @@
 <!-- lodash 불러오기 -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
 
-<!-- bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-<!-- bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-<!-- twitter bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- twitter bootstrap CSS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"></script>
-
 <!-- 공통(라이브러리) CSS -->
 <link rel="stylesheet" href="/resource/common.css" />
 <!-- 공통(라이브러리) JS -->
@@ -45,8 +31,16 @@
 
 <!-- 공통 CSS -->
 <link rel="stylesheet" href="/resource/app.css" />
+
 <!-- 공통 JS -->
 <script src="/resource/app.js"></script>
+
+<!-- boots CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- boots JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 <%="<script>"%>
 var activeProfile = '${activeProfile}';
 <%="</script>"%>
@@ -78,6 +72,56 @@ var param = ${paramJson};
 	
 }
 </style>
+<!-- boot ver -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+  <a class="navbar-brand" href="#"></a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-danger" href="/usr/home/main">Home <span class="sr-only">(current)</span></a>
+      </li>
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Member
+        </a>
+        <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
+        <c:if test="${isLogined}">
+			<a class="dropdown-item text-danger" href="/usr/member/accountInfo">${loginedMember.nickname}님 환영합니다.</a>
+		</c:if>
+		<c:if test="${isLogined == false}">
+			<a class="dropdown-item text-danger" href="/usr/member/join">회원가입</a>
+			<a class="dropdown-item text-danger" href="/usr/member/login">로그인</a>
+			<a class="dropdown-item text-danger" href="/usr/member/findLoginId">아이디 찾기</a>
+		</c:if>
+		<c:if test="${isLogined}">
+			<a class="dropdown-item text-danger" href="/usr/member/modify">회원 정보 수정</a>
+			<a class="dropdown-item text-danger" href="/usr/member/doLogout">로그아웃</a>
+		</c:if>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Board
+        </a>
+        <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-danger" href="/usr/article/notice-list">Notice</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-danger" href="/usr/article/free-list">Free</a>
+          <a class="dropdown-item text-danger" href="/usr/article/vil-list">Villains</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <img src="" alt="">
+    </form>
+  </div>
+</nav>
+	<!-- 
 	<div class="header" style="text-align: center">
 
 		<a href="/usr/home/main">홈</a>
@@ -97,3 +141,4 @@ var param = ${paramJson};
 		<a href="/usr/article/free-list">자유게시판</a> 
 		<a href="/usr/article/vil-list">빌런즈</a>
 	</div>
+	-->
