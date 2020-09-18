@@ -86,7 +86,7 @@ var param = ${paramJson};
         <a class="nav-link text-danger" href="/usr/home/main">Home <span class="sr-only">(current)</span></a>
       </li>
          <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <c:if test="${isLogined == false}">
           Member
           </c:if>
@@ -111,7 +111,7 @@ var param = ${paramJson};
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Board
         </a>
         <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
@@ -127,6 +127,8 @@ var param = ${paramJson};
     </form>
   </div>
 </nav>
+<br />
+<br />
 	<!-- 
 	<div class="header" style="text-align: center">
 
