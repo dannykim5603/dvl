@@ -101,7 +101,6 @@ var param = ${paramJson};
 		<c:if test="${isLogined == false}">
 			<a class="dropdown-item text-danger" href="/usr/member/join">Join</a>
 			<a class="dropdown-item text-danger" href="/usr/member/login">Login</a>
-			<a class="dropdown-item text-danger" href="/usr/member/findLoginId">Find ID</a>
 		</c:if>
 		<c:if test="${isLogined}">
 			<a class="dropdown-item text-danger" href="/usr/member/modify">수정</a>
