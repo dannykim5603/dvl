@@ -87,20 +87,26 @@ var param = ${paramJson};
       </li>
          <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <c:if test="${isLogined == false}">
           Member
+          </c:if>
+          <c:if test="${isLogined}">
+          ${loginedMember.nickname}
+          </c:if>
         </a>
         <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
         <c:if test="${isLogined}">
-			<a class="dropdown-item text-danger" href="/usr/member/accountInfo">${loginedMember.nickname}님 환영합니다.</a>
+			<a class="dropdown-item text-danger" href="/usr/member/accountInfo">Info</a>
 		</c:if>
 		<c:if test="${isLogined == false}">
-			<a class="dropdown-item text-danger" href="/usr/member/join">회원가입</a>
-			<a class="dropdown-item text-danger" href="/usr/member/login">로그인</a>
-			<a class="dropdown-item text-danger" href="/usr/member/findLoginId">아이디 찾기</a>
+			<a class="dropdown-item text-danger" href="/usr/member/join">Join</a>
+			<a class="dropdown-item text-danger" href="/usr/member/login">Login</a>
+			<a class="dropdown-item text-danger" href="/usr/member/findLoginId">Find ID</a>
 		</c:if>
 		<c:if test="${isLogined}">
-			<a class="dropdown-item text-danger" href="/usr/member/modify">회원 정보 수정</a>
-			<a class="dropdown-item text-danger" href="/usr/member/doLogout">로그아웃</a>
+			<a class="dropdown-item text-danger" href="/usr/member/modify">수정</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item text-danger" href="/usr/member/doLogout">Logout</a>
 		</c:if>
         </div>
       </li>

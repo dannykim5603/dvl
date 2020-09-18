@@ -24,8 +24,11 @@ h2 {
 }
 </style>
 <img src="/resource/img/dvl_logo_v1.png" style="width: 100px;" />
-<h2 style="background-color: black">> Daily VilLain's <</h2>
+<br />
+<br />
 <h1>알파 테스트 (v.0.0.3.3)</h1>
+<br />
+<br />
 <ul class="option-list">
 	<li>- 회원가입[○]</li>
 	<li>- 로그인[○]</li>
