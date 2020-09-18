@@ -26,7 +26,7 @@ h2 {
 <img src="/resource/img/dvl_logo_v1.png" style="width: 100px;" />
 <br />
 <br />
-<h1>알파 테스트 (v.0.3.3)</h1>
+<h1>알파 테스트 (v.0.3.4)</h1>
 <br />
 <br />
 <ul class="option-list">
