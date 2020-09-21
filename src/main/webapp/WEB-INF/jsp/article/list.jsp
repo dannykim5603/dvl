@@ -7,23 +7,47 @@
 	text-align:center;
 	margin:30px;
 }
-.title >.name{
+.title >.name {
 	text-decoration:none;
 }
-.table-box {
-	
+.body {
+	height:100%;
 }
+.table-box {
+
+}
+
+
 .table-box > table > thead {
-	background-color:black;
+	background-color:#343a40;
 	color:crimson;
 	text-align-last:center;
+	border-top:none;
 }
+
+.table-box > table > tbody{
+	text-align-last:center;
+}
+
+table {
+	border:3px double rgba(0,0,0,0.1);
+}
+
+table > tbody > tr > td > a{
+	text-decoration:none;
+}
+
+table > tbody > tr > td > a:hover {
+	text-decoration:none;
+	color:crimson;
+}
+
 </style>
 <div class = "title">
-	<a class="name">${board.name}</a>
+	<h1>${board.name}</h1>
 </div>
 <div class="table-box table-box-data con">
-    <table>
+    <table class="">
         <colgroup>
             <col width="100" />
             <col width="200" />
@@ -44,18 +68,6 @@
                     <td>
                         <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">${article.forPrintTitle}</a>
                     </td>
-                    <!--
-                    <td class="visible-on-sm-down">
-                        <a href="${article.getDetailLink(board.code)}" class="flex flex-row-wrap flex-ai-c">
-                            <span class="badge badge-primary bold margin-right-10">${article.id}</span>
-                            <div class="title flex-1-0-0 text-overflow-el">${article.forPrintTitle}</div>
-                            <div class="width-100p"></div>
-                            <div class="writer">${article.extra.writer}</div>
-                            &nbsp;|&nbsp;
-                            <div class="reg-date">${article.regDate}</div>
-                        </a>
-                    </td>
-                    -->
                 </tr>
             </c:forEach>
         </tbody>

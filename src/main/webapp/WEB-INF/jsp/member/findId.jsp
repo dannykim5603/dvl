@@ -101,38 +101,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 	<input type="text" name ="name" placeholder="이름" required="required"/>
 	<input type="email" name ="email" placeholder="이메일" required="required"/>
 	<button type="submit" class="btn btn-primary btn-block btn-large">확인</button>
-	<!-- 
-	<table>
-		<colgroup>
-			<col width="70">
-		</colgroup>
-		<tbody>
-			<tr>
-				<th>이름</th>
-				<td>
-					<div class="form-control-box">
-						<input type="text" placeholder="로그인 아이디 입력해주세요." name="name" maxlength="30" autofocus="autofocus" />
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td>
-					<div class="form-control-box">
-						<input type="email" placeholder="이메일을 입력해주세요." name="email" maxlength="50" />
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<th></th>
-				<td>
-					<button class="btn btn-primary" type="submit">찾기</button>
-					<button class="btn btn-info" onclick="history.back();" type="button">취소</button>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	 -->
+	
 </form>
 </div>
 

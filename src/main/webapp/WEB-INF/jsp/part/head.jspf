@@ -51,7 +51,16 @@ var param = ${paramJson};
 
 </head>
 <body>
-	<style>
+<style>
+body {
+	height:100%;
+	width:100%;
+	text-align:center;
+	font-family: 'Open Sans', sans-serif;
+/*	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);*/
+
+}
+
 .header {
 	padding: 20px;
 	background-color: black;
@@ -71,6 +80,13 @@ var param = ${paramJson};
 .board>a {
 	
 }
+.navbar { 
+	position:sticky;
+}
+
+.dropdown-menu {
+	text-align:center;
+}
 </style>
 <!-- boot ver -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark" >
@@ -81,11 +97,11 @@ var param = ${paramJson};
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto  flex flex-jc-c">
       <li class="nav-item active">
         <a class="nav-link text-danger" href="/usr/home/main">Home <span class="sr-only">(current)</span></a>
       </li>
-         <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <c:if test="${isLogined == false}">
           Member
@@ -128,24 +144,4 @@ var param = ${paramJson};
 </nav>
 <br />
 <br />
-	<!-- 
-	<div class="header" style="text-align: center">
-
-		<a href="/usr/home/main">홈</a>
-		<c:if test="${isLogined}">
-			<a href="/usr/member/accountInfo">${loginedMember.nickname}님 환영합니다.</a>
-		</c:if>
-		<c:if test="${isLogined == false}">
-			<a href="/usr/member/join">회원가입</a>
-			<a href="/usr/member/login">로그인</a>
-			<a href="/usr/member/findLoginId">아이디 찾기</a>
-		</c:if>
-		<c:if test="${isLogined}">
-			<a href="/usr/member/modify">회원 정보 수정</a>
-			<a href="/usr/member/doLogout">로그아웃</a>
-		</c:if>
-		<a href="/usr/article/notice-list">공지게시판</a>
-		<a href="/usr/article/free-list">자유게시판</a> 
-		<a href="/usr/article/vil-list">빌런즈</a>
-	</div>
-	-->
+	

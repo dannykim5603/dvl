@@ -56,7 +56,7 @@
 <div class="title">
 	<a class="name">${board.name} 게시판</a>
 </div>
-<div class="article-detail-box table-box table-box-vertical con">
+<div class="article-detail-box table-box table-box-vertical con text-white">
 
 	<table>
 		<colgroup>
@@ -127,7 +127,7 @@
 	</table>
 </div>
 
-<div class="btn-box con margin-top-20" style="float: right">
+<div class="btn-box con margin-top-20 text-white" style="float: right">
 	<a href="${listUrl}" class="btn btn-info">목록</a>
 </div>
 <br>
@@ -216,7 +216,7 @@
 		}
 	</script>
 
-	<form class="table-box table-box-vertical con form1"
+	<form class="table-box table-box-vertical con form1 text-white"
 		onsubmit="WriteReplyForm__submit(this); return false;">
 		<input type="hidden" name="relTypeCode" value="article" /> <input
 			type="hidden" name="relId" value="${article.id}" />
@@ -277,7 +277,7 @@
 }
 </style>
 
-<div class="reply-list-box table-box table-box-data con">
+<div class="reply-list-box table-box table-box-data con text-white">
 	<table>
 		<colgroup>
 			<col class="table-first-col">
