@@ -49,8 +49,10 @@ h2 {
 </main>
 <br />
 <br />
-<ul class="option-list">
+<ul class="option-list h5 small">
 	<li>- 관리자 모드[]</li>
+	<a> 신고된 게시물 확인하기/</a>
+	<a> 회원 정지 및 상태 보기 </a>
 	<li>- 게시물 신고기능[]</li>
 	<li>- 댓글 신고기능[]</li>
 	<li>- 레벨 별 기능 제한[]</li>

@@ -106,7 +106,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 </style>
 
 <div class="login">
-<h1>login</h1>
+<h1>LOGIN</h1>
 <form method="POST" class="table-box con form1" action="doLogin" onsubmit="MemberLoginForm__submit(this); return false;">
 	<input type="hidden" name="redirectUri" value="${param.redirectUri}">
 	<input type="hidden" name="loginPwReal">
@@ -116,13 +116,13 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 	<button type="submit" class="btn btn-primary btn-block btn-large">LogIn</button>
 </form>
 <br />
-<div class="">
+<div class="h5 small">
 아이디를 잊으셨나요? <a href="/usr/member/findLoginId">아이디 찾기</a>
 <br />
 비밀번호를 잊으셨나요? <a href="/usr/member/findLoginPw">비번 찾기</a>
 </div>
 <br />
-<a class=" flex flex-jc-c"href="/usr/member/join">회원가입</a>
+<a class=" flex flex-jc-c h5 small"href="/usr/member/join">회원가입</a>
 </div>
 
 <%@ include file="../part/foot.jspf"%>

@@ -35,6 +35,7 @@ table {
 
 table > tbody > tr > td > a{
 	text-decoration:none;
+	color:black;
 }
 
 table > tbody > tr > td > a:hover {

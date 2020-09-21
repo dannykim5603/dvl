@@ -142,11 +142,7 @@ public class MemberController {
 		
 		String loginId = (String)memberService.findId(newParam);
 		Member member = memberService.getMemberByLoginId(loginId);
-		System.out.println("=========================");
-		System.out.println("=========================");
 		System.out.println(member);
-		System.out.println("=========================");
-		System.out.println("=========================");
 		
 		if (member == null) {
 			model.addAttribute("historyBack",true);

@@ -123,3 +123,5 @@ SET regDate = NOW(),
 updateDate = NOW(),
 `code` = 'vil',
 `name` = '빌런';
+
+ALTER TABLE article ADD COLUMN report INT(50) NOT NULL DEFAULT 0;

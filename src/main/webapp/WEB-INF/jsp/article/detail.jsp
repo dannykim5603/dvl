@@ -29,7 +29,7 @@
 }
 
 .table-box>table th, .table-box>table>th {
-	background: #111111;
+	background: #343a40;
 	color: crimson;
 	text-align: center;
 }
@@ -56,7 +56,7 @@
 <div class="title">
 	<a class="name">${board.name} 게시판</a>
 </div>
-<div class="article-detail-box table-box table-box-vertical con text-white">
+<div class="article-detail-box table-box table-box-vertical con">
 
 	<table>
 		<colgroup>
@@ -216,7 +216,7 @@
 		}
 	</script>
 
-	<form class="table-box table-box-vertical con form1 text-white"
+	<form class="table-box table-box-vertical con form1"
 		onsubmit="WriteReplyForm__submit(this); return false;">
 		<input type="hidden" name="relTypeCode" value="article" /> <input
 			type="hidden" name="relId" value="${article.id}" />
@@ -277,7 +277,7 @@
 }
 </style>
 
-<div class="reply-list-box table-box table-box-data con text-white">
+<div class="reply-list-box table-box table-box-data con">
 	<table>
 		<colgroup>
 			<col class="table-first-col">

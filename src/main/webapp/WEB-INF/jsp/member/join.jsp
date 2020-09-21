@@ -185,7 +185,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 	<div class="text-white">
 	<br />
 	<br />
-	<a class="text-white flex flex-jc-c" href="/usr/member/login">로그인</a>
+	<a class="text-dark flex flex-jc-c h6 small" href="/usr/member/login">로그인</a>
 	</div>
 </form>
 </div>
