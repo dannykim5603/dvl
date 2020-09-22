@@ -33,6 +33,9 @@
 	color: crimson;
 	text-align: center;
 }
+.table-box>table th, .table-box>table td {
+	border: 1px solid rgba(0,0,0,0.1);
+}
 
 .article-detail-box {
 	margin-top: 150px;
@@ -52,6 +55,7 @@
 	margin-top: 30px;
 	text-align: center;
 }
+
 </style>
 <div class="title">
 	<a class="name">${board.name} 게시판</a>
@@ -112,24 +116,25 @@
 					</c:if>
 				</c:forEach>
 			</tr>
+			<c:if test="${isLogined}">
 			<tr>
-				<th>비고</th>
-				<td><c:if test="${article.extra.actorCanModify}">
-						<a class="btn btn-info"
-							href="${board.code}-modify?id=${article.id}&listUrl=${Util.getUriEncoded(listUrl)}">수정</a>
+				<th></th>
+				<td style="text-align:center">
+					<c:if test="${article.extra.actorCanModify}">
+						<a class="btn btn-info" href="${board.code}-modify?id=${article.id}&listUrl=${Util.getUriEncoded(listUrl)}">수정</a>
 					</c:if> <c:if test="${article.extra.actorCanDelete}">
-						<a class="btn btn-danger"
-							href="${board.code}-delete?id=${article.id}"
-							onclick="if ( confirm('삭제하시겠습니까?') == false ) return false;">삭제</a>
-					</c:if></td>
+						<a class="btn btn-danger" href="${board.code}-delete?id=${article.id}" onclick="if ( confirm('삭제하시겠습니까?') == false ) return false;">삭제</a>
+					</c:if>
+				</td>
 			</tr>
+			</c:if>
 		</tbody>
 	</table>
+	<div class="btn-box con margin-top-20 text-white" style="float: right">
+		<a href="${listUrl}" class="btn btn-info">목록</a>
+	</div>
 </div>
 
-<div class="btn-box con margin-top-20 text-white" style="float: right">
-	<a href="${listUrl}" class="btn btn-info">목록</a>
-</div>
 <br>
 <br>
 <br>

@@ -17,7 +17,7 @@
 
 .accountInfo {
 	text-align: center;
-	border: double 2px black;
+	border: 2px solid rgba(0,0,0,0.1);
 }
 </style>
 <div class ="info">

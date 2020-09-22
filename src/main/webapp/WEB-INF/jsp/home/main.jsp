@@ -36,6 +36,10 @@ h2 {
 .option-list>li {
 	padding-top: 10px;
 }
+
+body {
+	font-family: "DH";
+}
 </style>
 <img src="/resource/img/dvl_logo_v1.png" style="width: 100px;" />
 <br />
@@ -43,7 +47,7 @@ h2 {
 <main>
   <div class="text">
     Daily Villain's
-<br />
+	<br />
 <h5>알파 테스트 (v.0.3.6)</h5>
   </div>
 </main>
@@ -55,6 +59,7 @@ h2 {
 	<a> 회원 정지 및 상태 보기 </a>
 	<li>- 게시물 신고기능[]</li>
 	<li>- 댓글 신고기능[]</li>
+	<li>- 게시물 수정[]</li>
 	<li>- 레벨 별 기능 제한[]</li>
 	<li>- 실시간 채팅[]</li>
 	<li>- 계정간 쪽지[]</li>

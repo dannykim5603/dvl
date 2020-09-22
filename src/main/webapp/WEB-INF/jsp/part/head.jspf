@@ -18,6 +18,7 @@
 <!-- 폰트어썸 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 
+
 <!-- 제이쿼리 불러오기 -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -47,16 +48,15 @@ var activeProfile = '${activeProfile}';
 <%="<script>"%>
 var param = ${paramJson};
 <%="</script>"%>
-
-
 </head>
 <body>
 <style>
+
 body {
 	height:1080px;
 	text-align:center;
 	font-family: Arial, background: url('tlo.png');
-	background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), url('http://ustawiony.pl/tlo.png');
+	background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), url('https://ustawiony.pl/tlo.png');
 }
 
 .header {
@@ -85,17 +85,22 @@ body {
 .dropdown-menu {
 	text-align:center;
 }
+
+.text {
+  background: url(https://media.giphy.com/media/3o6Ztb45EYezY9x9gQ/giphy.gif);
+  background-size: contain;
+  background-position: top left;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
 </style>
 <!-- boot ver -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark" >
-  <a class="navbar-brand" href="#"></a>
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" >
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto  flex flex-jc-c">
+    <ul class="navbar-nav mr-auto  flex flex-jc-c ">
       <li class="nav-item active">
         <a class="nav-link text-danger" href="/usr/home/main">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -135,6 +140,9 @@ body {
         </div>
       </li>
     </ul>
+     <div class="text">
+    	Daily Villain's
+   	  </div>
     <form class="form-inline my-2 my-lg-0">
       <img src="" alt="">
     </form>
