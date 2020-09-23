@@ -56,6 +56,12 @@
 	text-align: center;
 }
 
+.button-menu{
+	display:flex;
+	width: 150px;
+	justify-content:space-between;
+}
+
 </style>
 <div class="title">
 	<a class="name">${board.name} 게시판</a>
@@ -130,7 +136,7 @@
 			</c:if>
 		</tbody>
 	</table>
-	<div class="btn-box con margin-top-20 text-white" style="float: right; display:flex">
+	<div class="btn-box con margin-top-20 text-white button-menu" style="float: right; display:flex">
 		<form action="${board.code}-report">
 		<a href="${board.code}-report?id=${article.id}" class="btn btn-outline-danger" onclick="if(confirm('신고하시겠습니까?')==false ) return false;">신고</a>
 		</form>
