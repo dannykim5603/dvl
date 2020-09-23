@@ -113,4 +113,17 @@ public class ArticleController {
 		articleService.report(id);
 		return "redirect:/usr/article/"+ boardCode + "-list"; 
 	}
+	
+	@RequestMapping("/usr/article/reported")
+	public String controll(Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
+		int loginedMemberId = (int)req.getAttribute("loginedMemberId");
+		Member member = memberService.getMemberById(loginedMemberId);
+		model.addAttribute("member",member);
+		
+		List<Article> articles = articleService.getReportedArticles();
+		
+		model.addAttribute("articles",articles);
+
+		return "article/reported";
+	}
 }

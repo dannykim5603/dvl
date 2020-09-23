@@ -27,6 +27,7 @@
 
 <!-- 공통(라이브러리) CSS -->
 <link rel="stylesheet" href="/resource/common.css" />
+
 <!-- 공통(라이브러리) JS -->
 <script src="/resource/common.js"></script>
 
@@ -139,6 +140,16 @@ body {
           <a class="dropdown-item text-danger" href="/usr/article/vil-list">Villains</a>
         </div>
       </li>
+      <c:if test="${loginedMember.level eq 10}">
+      <li class="nav-item dropdown">
+     	<a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ADMIN
+        </a>
+      	<div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
+      		<a class="dropdown-item text-danger" href="/usr/article/reported">reported articles</a>
+      	</div>
+      </li>
+      </c:if>
     </ul>
      <div class="text">
     	Daily Villain's

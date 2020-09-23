@@ -109,4 +109,8 @@ public class ArticleService {
 	public void report(int id) {
 		articleDao.report(id);
 	}
+
+	public List<Article> getReportedArticles() {
+		return articleDao.getReportedArticles();
+	}
 }

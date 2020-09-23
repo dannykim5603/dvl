@@ -12,6 +12,11 @@
 		AND boardId = #{id}
 		ORDER BY A.id DESC
 	</select>
+	
+	<select id="getReportedArticles" resultType="article">
+		SELECT * FROM article
+		WHERE report != 0
+	</select>
 
 	<select id="getArticleForPrintById" resultMap="article">
 		SELECT A.*,

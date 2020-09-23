@@ -25,4 +25,6 @@ public interface ArticleDao {
 	void hit(int id);
 
 	void report(int id);
+
+	List<Article> getReportedArticles();
 }
