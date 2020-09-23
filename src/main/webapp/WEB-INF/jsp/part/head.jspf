@@ -130,23 +130,20 @@ body {
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Board
-        </a>
+        <a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">게시판</a>
         <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-danger" href="/usr/article/notice-list">Notice</a>
+          <a class="dropdown-item text-danger" href="/usr/article/notice-list">공지</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-danger" href="/usr/article/free-list">Free</a>
-          <a class="dropdown-item text-danger" href="/usr/article/vil-list">Villains</a>
+          <a class="dropdown-item text-danger" href="/usr/article/free-list">자유</a>
+          <a class="dropdown-item text-danger" href="/usr/article/vil-list">빌런</a>
         </div>
       </li>
       <c:if test="${loginedMember.level eq 10}">
       <li class="nav-item dropdown">
-     	<a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ADMIN
-        </a>
+     	<a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리</a>
       	<div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
-      		<a class="dropdown-item text-danger" href="/usr/article/reported">reported articles</a>
+      		<a class="dropdown-item text-danger" href="/usr/article/reported">신고된 게시물</a>
+      		<a class="dropdown-item text-danger" href="/usr/article/reported">멤버 관리</a>
       	</div>
       </li>
       </c:if>
