@@ -166,8 +166,11 @@ input {
 	transition: box-shadow .5s ease;
 }
 
-input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+}
+
 </style>
+
 <div class="join">
 <h1>JOIN</h1>
 <form method="POST" class="table-box con form1" action="doJoin" onsubmit="MemberJoinForm__submit(this); return false;">

@@ -105,4 +105,8 @@ public class ArticleService {
 	public void hit(int id) {
 		articleDao.hit(id);
 	}
+
+	public void report(int id) {
+		articleDao.report(id);
+	}
 }

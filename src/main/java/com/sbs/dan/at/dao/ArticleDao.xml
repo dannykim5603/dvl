@@ -74,6 +74,14 @@
 		WHERE id = #{id}
 	</update>
 	
+	<update id="report">
+		UPDATE article
+		<set>
+			report = report + 1
+		</set>
+		WHERE id = #{id}
+	</update>
+	
 	<resultMap type="Article" id="article">
 		<id property="id" column="id" />
 		<id property="regDate" column="regDate" />

@@ -38,8 +38,6 @@ public class ArticleController {
 		
 		List<Article> articles = articleService.getArticlesForList(board.getId());
 		
-		System.out.println("article은??"+articles);
-		
 		model.addAttribute("articles",articles);
 
 		return "article/list";
@@ -107,5 +105,12 @@ public class ArticleController {
 		int id = Integer.parseInt((String)param.get("id"));
 		articleService.delete(id);
 		return "redirect:/usr/article/"+ boardCode + "-list" ;
+	}
+	
+	@RequestMapping("/usr/article/{boardCode}-report")
+	public String report(@PathVariable("boardCode") String boardCode, Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
+		int id = Integer.parseInt((String)param.get("id"));
+		articleService.report(id);
+		return "redirect:/usr/article/"+ boardCode + "-list"; 
 	}
 }

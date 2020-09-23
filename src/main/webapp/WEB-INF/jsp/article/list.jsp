@@ -17,7 +17,6 @@
 
 }
 
-
 .table-box > table > thead {
 	background-color:#343a40;
 	color:crimson;
@@ -63,6 +62,7 @@ table > tbody > tr > td > a:hover {
         </thead>
         <tbody>
             <c:forEach items="${articles}" var="article">
+            	<c:if test="${article.report <= 10}">
                 <tr>
                     <td>${article.id}</td>
                     <td>${article.regDate}</td>
@@ -70,6 +70,16 @@ table > tbody > tr > td > a:hover {
                         <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">${article.forPrintTitle}</a>
                     </td>
                 </tr>
+                </c:if>
+                <c:if test="${article.report > 10}">
+                <tr>
+                    <td>${article.id}</td>
+                    <td>${article.regDate}</td>
+                    <td>
+                        <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">신고가 누적된 게시물입니다.</a>
+                    </td>
+                </tr>
+                </c:if>
             </c:forEach>
         </tbody>
     </table>
@@ -77,11 +87,11 @@ table > tbody > tr > td > a:hover {
 <div class="btn-box con margin-top-20">
 	<c:if test="${board.id == '2'}">
 		<c:if test="${member.level == 10}">
-   		<a class="btn btn-primary" href="./${board.code}-write" style="background:crimson">글쓰기</a>
+   		<a class="btn btn-outline-danger btn-sm" href="./${board.code}-write">글쓰기</a>
 		</c:if>
 	</c:if>
 	<c:if test="${board.code != 'notice'}">
-    <a class="btn btn-primary" href="./${board.code}-write" style="background:crimson">글쓰기</a>
+    <a class="btn btn-outline-danger btn-sm" href="./${board.code}-write">글쓰기</a>
 	</c:if>
 </div>
 
