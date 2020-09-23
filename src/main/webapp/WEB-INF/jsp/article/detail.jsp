@@ -130,10 +130,11 @@
 			</c:if>
 		</tbody>
 	</table>
-	<div class="btn-box con margin-top-20 text-white" style="float: right">
+	<div class="btn-box con margin-top-20 text-white" style="float: right; display:flex">
 		<form action="${board.code}-report">
 		<a href="${board.code}-report?id=${article.id}" class="btn btn-outline-danger" onclick="if(confirm('신고하시겠습니까?')==false ) return false;">신고</a>
 		</form>
+		<br />
 		<a href="${listUrl}" class="btn btn-outline-primary">목록</a>
 	</div>
 </div>
