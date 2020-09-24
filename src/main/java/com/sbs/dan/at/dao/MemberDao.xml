@@ -46,6 +46,12 @@
 		AND email = #{email}
 	</select>
 	
+	<select id="getMembersToManage" resultType="Member">
+		SELECT * 
+		FROM member
+		WHERE delstatus = 0
+	</select>
+	
 	<update id="deleteAccount">
 		UPDATE member
 		<set>

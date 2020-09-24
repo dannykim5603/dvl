@@ -96,7 +96,6 @@ public class ArticleController {
 		Article article = articleService.getArticleForPrintById(loginedMember,id);
 		model.addAttribute("article",article);
 
-		
 		return "article/detail";
 	}
 	

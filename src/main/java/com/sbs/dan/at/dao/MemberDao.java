@@ -1,5 +1,6 @@
 package com.sbs.dan.at.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -20,4 +21,6 @@ public interface MemberDao {
 	String findId(Map<String, Object> newParam);
 
 	void deleteAccount(Member member);
+
+	List<Member> getMembersToManage();
 }

@@ -1,5 +1,6 @@
 package com.sbs.dan.at.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,10 @@ public class MemberService {
 
 	public void deleteAccount(Member member) {
 		memberDao.deleteAccount(member);
+	}
+
+	public List<Member> getMembersToManage() {
+		return memberDao.getMembersToManage();
 	}
 	
 }

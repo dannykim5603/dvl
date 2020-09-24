@@ -21,4 +21,8 @@ public class Member {
 	private String email;
 	private String phoneNo;
 	private int level;
+	
+	public String getProfileLink(String loginId) {
+		return "/usr/member/accountInfo";
+	}
 }

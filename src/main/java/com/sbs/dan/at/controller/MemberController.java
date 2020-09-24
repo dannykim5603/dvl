@@ -1,7 +1,9 @@
 package com.sbs.dan.at.controller;
 
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,14 +101,6 @@ public class MemberController {
 		Map<String, Object> newParam = Util.getNewMapOf(param, "loginPwReal", "nickname", "email", "cellphoneNo");
 		newParam.put("id", id);
 		
-		System.out.println("========================================");
-		System.out.println("========================================");
-		System.out.println(newParam);
-		System.out.println("redirectUri : " + redirectUri);
-		System.out.println("해당 계정 아이디 : " + id);
-		System.out.println("========================================");
-		System.out.println("========================================");
-		
 		memberService.modify(newParam);
 		
 		return "redirect:"+redirectUri;
@@ -124,7 +118,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/usr/member/accountInfo")
-	public String accountInfo(HttpSession session, Model model, String redirectUri) {
+	public String accountInfo(HttpSession session,@RequestParam Map<String,Object> param, Model model, String redirectUri) {
+		String loginId = (String)param.get("id");
+		
 		Member member = memberService.getMemberById((int)session.getAttribute("loginedMemberId"));
 		model.addAttribute("member",member);
 		
@@ -142,7 +138,6 @@ public class MemberController {
 		
 		String loginId = (String)memberService.findId(newParam);
 		Member member = memberService.getMemberByLoginId(loginId);
-		System.out.println(member);
 		
 		if (member == null) {
 			model.addAttribute("historyBack",true);
@@ -164,5 +159,13 @@ public class MemberController {
 		model.addAttribute("alertMsg",String.format("찾으시는 아이디는 %s 입니다.", member.getNickname()));
 		
 		return "redirect:"+redirectUri;
+	}
+	
+	@RequestMapping("/usr/member/manage")
+	public String manage(@RequestParam Map<String,Object> param, Model model, String redirectUri,HttpServletRequest req) {
+		List<Member> members = memberService.getMembersToManage();
+		model.addAttribute("members",members);
+		
+		return "/member/manage";
 	}
 }

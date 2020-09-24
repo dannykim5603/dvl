@@ -67,7 +67,6 @@
 	<a class="name">${board.name} 게시판</a>
 </div>
 <div class="article-detail-box table-box table-box-vertical con">
-
 	<table>
 		<colgroup>
 			<col class="table-first-col" />

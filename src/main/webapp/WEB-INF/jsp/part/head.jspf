@@ -11,9 +11,7 @@
 
 <!-- 구글 폰트 불러오기 -->
 <!-- rotobo(400/700/900), notosanskr(400/600/900) -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- 폰트어썸 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
@@ -143,12 +141,12 @@ body {
      	<a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리</a>
       	<div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
       		<a class="dropdown-item text-danger" href="/usr/article/reported">신고된 게시물</a>
-      		<a class="dropdown-item text-danger" href="/usr/article/reported">멤버 관리</a>
+      		<a class="dropdown-item text-danger" href="/usr/member/manage">멤버 관리</a>
       	</div>
       </li>
       </c:if>
     </ul>
-     <div class="text">
+      <div class="text">
     	Daily Villain's
    	  </div>
     <form class="form-inline my-2 my-lg-0">
