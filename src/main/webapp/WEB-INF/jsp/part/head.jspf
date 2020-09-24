@@ -97,7 +97,7 @@ body {
 }
 </style>
 <!-- boot ver -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+<nav class="navbar navbar-expand navbar-light bg-dark" >
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto  flex flex-jc-c ">
       <li class="nav-item active">

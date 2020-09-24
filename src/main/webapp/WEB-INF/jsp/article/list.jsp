@@ -43,8 +43,8 @@ table > tbody > tr > td > a:hover {
 }
 
 </style>
-<div class = "title">
-	<h1>${board.name}</h1>
+<div class = "title h3" style="letter-spacing:-5px;">
+	${board.name} 게시판
 </div>
 <div class="table-box table-box-data con">
     <table class="">

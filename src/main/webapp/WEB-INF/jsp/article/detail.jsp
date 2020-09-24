@@ -274,7 +274,7 @@
 		</table>
 	</form>
 </c:if>
-
+<c:if test="${isLogined}">
 <h2 class="con">댓글 목록</h2>
 
 <style>
@@ -314,7 +314,7 @@
 		</tbody>
 	</table>
 </div>
-
+</c:if>
 <style>
 .reply-modify-form-modal-actived, reply-modify-form-modal-actived>body {
 	overflow: hidden;

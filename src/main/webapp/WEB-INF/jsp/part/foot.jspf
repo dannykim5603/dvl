@@ -1,23 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style>
-footer {
-	display:block;
-}
 
 .footer{
- width:100%;
- height:0%;
-   position:absolute;
-   bottom:0;
-  text-align: center;
+ height: 50px;
+  margin-top: 40px;
 }
 </style>
-<footer>
 <div class="footer h6 small">
 	<p>Copyright © 2020 DailyVilLains. All rights reserved.</p>
     <address>Contact webmaster for more information.</address>
 </div>
-</footer>
 </body>
 </html>
