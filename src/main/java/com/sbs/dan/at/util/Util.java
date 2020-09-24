@@ -459,4 +459,10 @@ public class Util {
 
 		return dateStr;
 	}
+	
+	public static boolean isNum(HttpServletRequest req, String paramName) {
+		String paramValue = req.getParameter(paramName);
+		
+		return isNum(paramValue);
+	}
 }

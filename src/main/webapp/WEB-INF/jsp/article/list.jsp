@@ -71,7 +71,7 @@ table > tbody > tr > td > a:hover {
                     </td>
                 </tr>
                 </c:if>
-                <c:if test="${article.report > 10}">
+                <c:if test="${article.report > 10 && article.report < 30}">
                 <tr>
                     <td>${article.id}</td>
                     <td>${article.regDate}</td>
@@ -79,6 +79,11 @@ table > tbody > tr > td > a:hover {
                         <a href="${article.getDetailLink(board.code)}" class="block width-100p text-overflow-el">신고가 누적된 게시물입니다.</a>
                     </td>
                 </tr>
+                </c:if>
+                <c:if test="${article.report > 30 }">
+                	<td>${article.id}</td>
+                	<td>${article.regDate}</td>
+                	<td>신고가 누적되어 삭제되었습니다.</td>
                 </c:if>
             </c:forEach>
         </tbody>
