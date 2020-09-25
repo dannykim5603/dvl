@@ -48,15 +48,16 @@ body {
   <div class="text">
     Daily Villain's
 	<br />
-<h5>알파 테스트 (v.0.3.6)</h5>
+<h5>알파 테스트 (v.0.3.7)</h5>
   </div>
 </main>
 <br />
 <br />
 <ul class="option-list h5 small">
 	<li>- 관리자 모드[]</li>
-	<a> 신고된 게시물 확인하기/</a>
-	<a> 회원 정지 및 상태 보기 </a>
+	<a> 신고된 게시물 확인하기 /</a>
+	<a> 회원 정지 /</a>
+	<a> 회원 상태 보기 </a>
 	<li>- 게시물 신고기능[O]</li>
 	<a> 중복신고 방지 기능[]</a>
 	<li>- 댓글 신고기능[]</li>

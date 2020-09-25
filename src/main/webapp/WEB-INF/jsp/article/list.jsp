@@ -13,15 +13,11 @@
 .body {
 	height:100%;
 }
-.table-box {
-
-}
 
 .table-box > table > thead {
-	background-color:#343a40;
+	/*background-color:#343a40;*/
 	color:crimson;
 	text-align-last:center;
-	border-top:none;
 }
 
 .table-box > table > tbody{
@@ -29,7 +25,18 @@
 }
 
 table {
-	border:3px double rgba(0,0,0,0.1);
+	width:100%;
+	border-top:3px double rgba(0,0,0,0.1);
+	border-collapse: collapse;
+}
+tr,td {
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	padding: 10px;
+	
+}
+thead > tr > th{
+	border-right:none;
+	border-left:none;
 }
 
 table > tbody > tr > td > a{

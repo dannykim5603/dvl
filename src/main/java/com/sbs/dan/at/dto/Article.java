@@ -26,6 +26,7 @@ public class Article {
 	private String body;
 	private int hit;
 	private int report;
+	private int like;
 	private Map<String,Object> extra;
 	
 	@JsonProperty("forPrintBody")

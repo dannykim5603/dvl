@@ -115,7 +115,7 @@
 				<configuration>
 					<url>http://service.n32.st.dailyvillains.site:8080/manager/text</url>
 					<server>service_st_dailyvillains_site__manager_text</server>
-					<path>/</path>
+					<path>/ROOT##3</path>
 				</configuration>
 			</plugin>
 			<plugin>

@@ -123,12 +123,12 @@ html>head+body:nth-child(2) .height-300 {
 	border-collapse: collapse;
 }
 
-.table-box>table th, .table-box>table td {
+/*.table-box>table th, .table-box>table td {
 	border: 1px solid black;
 	padding: 10px;
 	text-align: left;
 }
-
+*/
 /* 폼 관련 */
 .form1 .form-control-box>input, .form1 .form-control-box>textarea {
 	width: 100%;

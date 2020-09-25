@@ -29,7 +29,7 @@
 }
 
 .table-box>table th, .table-box>table>th {
-	background: #343a40;
+	/*background: #343a40;*/
 	color: crimson;
 	text-align: center;
 }
@@ -38,7 +38,7 @@
 }
 
 .article-detail-box {
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 .article-detail-box>.tr {
@@ -62,6 +62,9 @@
 	justify-content:space-between;
 }
 
+.img-box {
+	width:500px;
+}
 </style>
 <div class="title">
 	<a class="name">${board.name} 게시판</a>
@@ -93,6 +96,10 @@
 				<td>${article.title}</td>
 			</tr>
 			<tr>
+				<th>좋아요</th>
+				<td>${article.like}</td>
+			</tr>
+			<tr>
 				<th>내용</th>
 				<td><script type="text/x-template">${article.body}</script>
 					<div class="toast-editor toast-editor-viewer"></div></td>
@@ -107,14 +114,12 @@
 							<th>첨부파일 ${fileNo}</th>
 							<td><c:if test="${file.fileExtTypeCode == 'video'}">
 									<div class="video-box">
-										<video controls
-											src="/usr/file/streamVideo?id=${file.id}&updateDate=${file.updateDate}"></video>
+										<video controls src="/usr/file/streamVideo?id=${file.id}&updateDate=${file.updateDate}"></video>
 									</div>
-								</c:if> <c:if test="${file.fileExtTypeCode == 'img'}">
+								</c:if> 
+								<c:if test="${file.fileExtTypeCode == 'img'}">
 									<div class="img-box img-box-auto">
-										<img
-											src="/usr/file/img?id=${file.id}&updateDate=${file.updateDate}"
-											alt="" />
+										<img src="/usr/file/img?id=${file.id}&updateDate=${file.updateDate}" alt="" />
 									</div>
 								</c:if></td>
 						</tr>
@@ -135,11 +140,13 @@
 			</c:if>
 		</tbody>
 	</table>
-	<div class="btn-box con margin-top-20 text-white button-menu" style="float: right; display:flex">
+	<div class="btn-box con margin-top-20 text-white button-menu" style="float: right; display:flex; width:200px">
 		<form action="${board.code}-report">
 		<a href="${board.code}-report?id=${article.id}" class="btn btn-outline-danger" onclick="if(confirm('신고하시겠습니까?')==false ) return false;">신고</a>
 		</form>
-		<br />
+		<form action="${board.code}-like">
+		<a href="${board.code}-like?id=${article.id}" class="btn btn-outline-success" >좋아요</a>
+		</form>
 		<a href="${listUrl}" class="btn btn-outline-primary">목록</a>
 	</div>
 </div>

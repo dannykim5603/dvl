@@ -113,6 +113,13 @@ public class ArticleController {
 		return "redirect:/usr/article/"+ boardCode + "-list"; 
 	}
 	
+	@RequestMapping("/usr/article/{boardCode}-like")
+	public String like(@PathVariable("boardCode") String boardCode, Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
+		int id = Integer.parseInt((String)param.get("id"));
+		articleService.like(id);
+		return "redirect:/usr/article/"+ boardCode + "-detail?id="+ id ;
+	}
+	
 	@RequestMapping("/usr/article/reported")
 	public String controll(Model model, HttpServletRequest req, @RequestParam Map<String,Object> param) {
 		int loginedMemberId = (int)req.getAttribute("loginedMemberId");

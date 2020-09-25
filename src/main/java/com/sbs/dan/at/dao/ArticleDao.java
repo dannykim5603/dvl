@@ -27,4 +27,6 @@ public interface ArticleDao {
 	void report(int id);
 
 	List<Article> getReportedArticles();
+
+	void like(int id);
 }

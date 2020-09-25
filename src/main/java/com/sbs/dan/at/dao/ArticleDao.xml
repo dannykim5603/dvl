@@ -87,6 +87,14 @@
 		WHERE id = #{id}
 	</update>
 	
+	<update id="like">
+		UPDATE article
+		<set>
+			`like` = `like` + 1
+		</set>
+		WHERE id = #{id}
+	</update>
+	
 	<resultMap type="Article" id="article">
 		<id property="id" column="id" />
 		<id property="regDate" column="regDate" />
@@ -98,6 +106,7 @@
 		<id property="memberId" column="memberId" />
 		<id property="boardId" column="boardId" />
 		<id property="hit" column="hit" />
+		<id property="like" column="like" />
 		<association property="extra" javaType="map">
 			<id property="writer" column="extra__writer" />
 		</association>

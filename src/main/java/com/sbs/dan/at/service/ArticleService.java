@@ -113,4 +113,8 @@ public class ArticleService {
 	public List<Article> getReportedArticles() {
 		return articleDao.getReportedArticles();
 	}
+
+	public void like(int id) {
+		articleDao.like(id);
+	}
 }

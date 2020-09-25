@@ -48,6 +48,9 @@ custom:
   logoText: 데빌런
   emailFrom: blog.dannys@gmail.com
   emailFromName: 데빌런
+  logging:
+    dir: log
+    level: info
 
 ---
 
@@ -68,3 +71,7 @@ spring:
     password: DANNYkim5603!
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/st_n32_service?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull
+custom:
+  logging:
+    dir: /tmp/dvl-log
+    level: info
