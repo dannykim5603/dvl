@@ -65,6 +65,9 @@
 .img-box {
 	width:500px;
 }
+.video-box {
+	width:500px;
+}
 </style>
 <div class="title">
 	<a class="name">${board.name} 게시판</a>
@@ -132,7 +135,8 @@
 				<td style="text-align:center">
 					<c:if test="${article.extra.actorCanModify}">
 						<a class="btn btn-info" href="${board.code}-modify?id=${article.id}&listUrl=${Util.getUriEncoded(listUrl)}">수정</a>
-					</c:if> <c:if test="${article.extra.actorCanDelete}">
+					</c:if> 
+					<c:if test="${article.extra.actorCanDelete}">
 						<a class="btn btn-danger" href="${board.code}-delete?id=${article.id}" onclick="if ( confirm('삭제하시겠습니까?') == false ) return false;">삭제</a>
 					</c:if>
 				</td>
