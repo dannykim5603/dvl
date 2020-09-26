@@ -48,7 +48,7 @@ body {
   <div class="text">
     Daily Villain's
 	<br />
-<h5>알파 테스트 (v.0.3.7)</h5>
+<h5>알파 테스트 (v.0.3.8)</h5>
   </div>
 </main>
 <br />

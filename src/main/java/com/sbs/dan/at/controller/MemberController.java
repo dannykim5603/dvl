@@ -29,7 +29,9 @@ public class MemberController {
 	@RequestMapping("/usr/member/doJoin")
 	public String doJoin(@RequestParam Map<String, Object> param, Model model) {
 		memberService.doJoin(param);
-		return "redirect:usr/home/main";
+		
+		model.addAttribute("alertMsg","회원가입을 축하 합니다.");
+		return "redirect:../home/main";
 	}
 
 	@RequestMapping("/usr/member/login")
