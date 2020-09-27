@@ -129,6 +129,20 @@ public class MemberController {
 		return "/member/accountInfo";
 	}
 	
+	@RequestMapping("/usr/member/findLoginPw")
+	public String findLoginPw() {
+		return "/member/findPw";
+	}
+	
+	@RequestMapping("/usr/member/doFindLoginPw")
+	public String doFindLoginPw(@RequestParam Map<String,Object> param, Model model, String redirectUri) {
+		Map<String,Object> newParam = Util.getNewMapOf(param,"name","loginId","email");
+		
+		String loginPw = (String)memberService.findPw(newParam);
+		Member member = memberService.getMemberByNameLoginId(newParam);
+		return ":";
+	}
+	
 	@RequestMapping("/usr/member/findLoginId")
 	public String findLoginId() {
 		return "/member/findId";

@@ -64,5 +64,13 @@ public class MemberService {
 	public List<Member> getMembersToManage() {
 		return memberDao.getMembersToManage();
 	}
+
+	public String findPw(Map<String, Object> newParam) {
+		return memberDao.findPw(newParam);
+	}
+
+	public Member getMemberByNameLoginId(Map<String, Object> newParam) {
+		return getMemberByNameLoginId(newParam);
+	}
 	
 }

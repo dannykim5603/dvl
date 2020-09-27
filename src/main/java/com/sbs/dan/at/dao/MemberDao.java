@@ -23,4 +23,8 @@ public interface MemberDao {
 	void deleteAccount(Member member);
 
 	List<Member> getMembersToManage();
+
+	String findPw(Map<String, Object> newParam);
+
+	Member getMemberByNameLoginId(Map<String, Object> newParam);
 }
