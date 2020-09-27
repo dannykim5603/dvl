@@ -70,7 +70,7 @@ public class MemberService {
 	}
 
 	public Member getMemberByNameLoginId(Map<String, Object> newParam) {
-		return getMemberByNameLoginId(newParam);
+		return memberDao.getMemberByNameLoginId(newParam);
 	}
 	
 }

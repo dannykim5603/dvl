@@ -23,6 +23,20 @@
 		phoneNo = #{cellphoneNo}
 	</insert>
 	
+	<select id="findPw">
+		SELECT loginPw
+		FROM member
+		WHERE `name` = #{name},
+		email = #{email},
+		loginId = #{loginId}
+	</select>
+	
+	<select id="getMemberByNameLoginId" resultType="Member">
+		SELECT * FROM member
+		WHERE `name` = #{name},
+		loginId = #{loginId}
+	</select>
+	
 	<select id="getMemberByLoginId" resultType="Member">
 		SELECT * FROM member
 		WHERE loginId = #{loginId}
