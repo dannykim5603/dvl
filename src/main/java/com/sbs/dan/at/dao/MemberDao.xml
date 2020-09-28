@@ -23,19 +23,25 @@
 		phoneNo = #{cellphoneNo}
 	</insert>
 	
-	<select id="findPw">
-		SELECT loginPw
+	<select id="findPw" resultType="Member">
+		SELECT *
 		FROM member
-		WHERE `name` = #{name},
-		email = #{email},
+		WHERE `name` = #{name} AND
+		email = #{email} AND
 		loginId = #{loginId}
 	</select>
 	
 	<select id="getMemberByNameLoginId" resultType="Member">
 		SELECT * FROM member
-		WHERE `name` = #{name},
+		WHERE `name` = #{name} AND
 		loginId = #{loginId}
 	</select>
+		
+	<select id="findId" resultType="String">
+		SELECT * FROM member
+		WHERE name = #{name}
+		AND email = #{email}
+	</select>	
 	
 	<select id="getMemberByLoginId" resultType="Member">
 		SELECT * FROM member
@@ -53,12 +59,7 @@
 		</set>
 		WHERE id = #{id}
 	</update>
-	
-	<select id="findId" resultType="String">
-		SELECT * FROM member
-		WHERE name = #{name}
-		AND email = #{email}
-	</select>
+
 	
 	<select id="getMembersToManage" resultType="Member">
 		SELECT * 

@@ -37,10 +37,6 @@ public class MemberService {
 		mailService.send(email, title, body.toString());
 	}
 
-	public Member getMemberByLoginId(String loginId) {
-		
-		return memberDao.getMemberByLoginId(loginId);
-	}
 
 	public Member getMemberById(int loginedMemberId) {
 		return memberDao.getMemberById(loginedMemberId);
@@ -56,6 +52,11 @@ public class MemberService {
 		String loginId = member.getLoginId();
 		return loginId;
 	}
+	
+	public Member getMemberByLoginId(String loginId) {
+		
+		return memberDao.getMemberByLoginId(loginId);
+	}
 
 	public void deleteAccount(Member member) {
 		memberDao.deleteAccount(member);
@@ -66,7 +67,11 @@ public class MemberService {
 	}
 
 	public String findPw(Map<String, Object> newParam) {
-		return memberDao.findPw(newParam);
+		Member member = memberDao.findPw(newParam);
+		
+		String pw = member.getLoginPw();
+		
+		return pw;
 	}
 
 	public Member getMemberByNameLoginId(Map<String, Object> newParam) {

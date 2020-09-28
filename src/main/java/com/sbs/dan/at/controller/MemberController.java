@@ -140,7 +140,25 @@ public class MemberController {
 		
 		String loginPw = (String)memberService.findPw(newParam);
 		Member member = memberService.getMemberByNameLoginId(newParam);
-		return ":";
+		
+		if (member == null) {
+			model.addAttribute("historyBack", true);
+			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
+		}
+		
+		if (member.getDelStatus() == 1) {
+			model.addAttribute("historyBack",true);
+			model.addAttribute("alertMsg","탈퇴한 회원입니다.");
+		}
+		
+		if (redirectUri == null || redirectUri.length() == 0) {
+			redirectUri = "/usr/home/main";
+		}
+		
+		model.addAttribute("redirectUri",redirectUri);
+		model.addAttribute("alertMsg","가입하신 이메일로 임시 비밀번호를 발송했습니다.");
+		
+		return "redirect:"+redirectUri;
 	}
 	
 	@RequestMapping("/usr/member/findLoginId")
@@ -163,7 +181,7 @@ public class MemberController {
 		
 		if (member.getDelStatus() == 1) {
 			model.addAttribute("historyBack",true);
-			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
+			model.addAttribute("alertMsg","탈퇴한 회원입니다.");
 			return "common/redirect";
 		}
 		

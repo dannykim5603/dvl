@@ -24,7 +24,7 @@ public interface MemberDao {
 
 	List<Member> getMembersToManage();
 
-	String findPw(Map<String, Object> newParam);
+	Member findPw(Map<String, Object> newParam);
 
 	Member getMemberByNameLoginId(Map<String, Object> newParam);
 }
