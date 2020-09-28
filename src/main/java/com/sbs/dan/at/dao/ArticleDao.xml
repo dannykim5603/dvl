@@ -13,6 +13,11 @@
 		ORDER BY A.id DESC
 	</select>
 	
+	<select id="getBoardByCode" resultType="Board">
+		SELECT * FROM board
+		WHERE `code` = #{code}
+	</select>
+	
 	<select id="getReportedArticles" resultType="article">
 		SELECT * FROM article
 		WHERE report != 0
@@ -31,11 +36,6 @@
 	<select id="getArticleById" resultType="Article">
 		SELECT * FROM article
 		WHERE id = #{id}
-	</select>
-	
-	<select id="getBoardByCode" resultType="Board">
-		SELECT * FROM board
-		WHERE `code` = #{code}
 	</select>
 
 	<insert id="write" useGeneratedKeys="true" keyProperty="id">
