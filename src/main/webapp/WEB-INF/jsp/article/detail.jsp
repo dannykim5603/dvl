@@ -20,8 +20,8 @@
 	letter-spacing: -3px;
 }
 
-.table-box {
-	
+.table-box tr > td{
+	text-align:-webkit-center;
 }
 
 .table-box>table>thead {
@@ -29,12 +29,11 @@
 }
 
 .table-box>table th, .table-box>table>th {
-	/*background: #343a40;*/
 	color: crimson;
 	text-align: center;
 }
 .table-box>table th, .table-box>table td {
-	border: 1px solid rgba(0,0,0,0.1);
+	border: 1px solid rgba(0,0,0,0);
 }
 
 .article-detail-box {
@@ -154,10 +153,11 @@
 		<a href="${listUrl}" class="btn btn-outline-primary">목록</a>
 	</div>
 </div>
-
 <br>
 <br>
-<br>
+<br />
+<br />
+<br />
 <c:if test="${isLogined}">
 	<h2 class="con">댓글 작성</h2>
 
@@ -166,12 +166,14 @@
 			if (isNowLoading()) {
 				alert('처리중입니다.');
 			}
+			
 			form.body.value = form.body.value.trim();
 			if (form.body.value.length == 0) {
 				alert('댓글을 입력해주세요.');
 				form.body.focus();
 				return;
 			}
+			
 			startLoading();
 			var startUploadFiles = function(onSuccess) {
 				var needToUpload = false;
@@ -276,19 +278,19 @@
 						</td>
 					</tr>
 				</c:forEach>
-				<tr class="tr-do">
-					<th>작성</th>
-					<td><input class="btn btn-primary" type="submit" value="작성">
-					</td>
-				</tr>
 			</tbody>
 		</table>
+		<br />
+			<input class="btn btn-primary" type="submit" value="작성">
 	</form>
 </c:if>
 <c:if test="${isLogined}">
 <h2 class="con">댓글 목록</h2>
 
 <style>
+.reply-list-box {
+    text-align: -webkit-center;
+}
 .reply-list-box .media-box>* {
 	margin-top: 10px;
 }
@@ -300,10 +302,19 @@
 .reply-list-box .media-box>:first-chidl {
 	margin-top: 10px;
 }
+.borderless td, .borderless th {
+    border: none;
+    text-align:center;
+}
+
+.reply-list-box > .borderless tr{
+	border: 1px solid (0,0,0,0.5);
+}
+
 </style>
 
-<div class="reply-list-box table-box table-box-data con">
-	<table>
+<div class="reply-list-box table-box-data con">
+	<table class="borderless">
 		<colgroup>
 			<col class="table-first-col">
 			<col width="100">
@@ -311,15 +322,6 @@
 			<col>
 			<col width="180">
 		</colgroup>
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>날짜</th>
-				<th>작성자</th>
-				<th>내용</th>
-				<th>비고</th>
-			</tr>
-		</thead>
 		<tbody>
 
 		</tbody>
@@ -351,8 +353,7 @@
 <div class="popup-1 reply-modify-form-modal">
 	<div>
 		<h1>댓글 수정</h1>
-		<form action="" class="form1 padding-10 table-box table-box-vertical"
-			onsubmit="ReplyList__submitModifyForm(this); return false;">
+		<form action="" class="form1 padding-10 table-box table-box-vertical" onsubmit="ReplyList__submitModifyForm(this); return false;">
 			<input type="hidden" name="id" />
 			<table>
 				<colgroup>
@@ -367,12 +368,9 @@
 							</div>
 						</td>
 					</tr>
-
-					<c:forEach var="i" begin="1" end="3" step="1">
+						<c:forEach var="i" begin="1" end="3" step="1">
 						<c:set var="fileNo" value="${String.valueOf(i)}" />
-						<c:set var="fileExtTypeCode"
-							value="${appConfig.getAttachmentFileExtTypeCode('article', i)}" />
-
+						<c:set var="fileExtTypeCode" value="${appConfig.getAttachmentFileExtTypeCode('article', i)}" />
 						<tr>
 							<th>첨부${fileNo}</th>
 							<td>
@@ -392,9 +390,8 @@
 							<th>첨부${fileNo} 삭제</th>
 							<td>
 								<div class="form-control-box">
-									<label> <input type="checkbox"
-										data-name="deleteFile__reply__0__common__attachment__${fileNo}"
-										value="Y" /> 삭제
+									<label>
+										<input type="checkbox" data-name="deleteFile__reply__0__common__attachment__${fileNo}" value="Y" /> 삭제
 									</label>
 								</div>
 							</td>
@@ -410,7 +407,6 @@
 					</tr>
 				</tbody>
 			</table>
-
 		</form>
 	</div>
 </div>
@@ -507,36 +503,19 @@
 		var onModifyReplyComplete = function(data) {
 			if (data.resultCode && data.resultCode.substr(0, 2) == 'S-') {
 				// 성공시에는 기존에 그려진 내용을 수정해야 한다.!!
-				$('.reply-list-box tbody > tr[data-id="' + id + '"]').data(
-						'data-originBody', body);
-				$(
-						'.reply-list-box tbody > tr[data-id="' + id
-								+ '"] .reply-body').empty().append(
-						getHtmlEncoded(body).replaceAll('\n', '<br>'));
-				$('.reply-list-box tbody > tr[data-id="' + id + '"] .video-box')
-						.empty();
-				$('.reply-list-box tbody > tr[data-id="' + id + '"] .img-box')
-						.empty();
+				$('.reply-list-box tbody > tr[data-id="' + id + '"]').data('data-originBody', body);
+				$('.reply-list-box tbody > tr[data-id="' + id+ '"] .reply-body').empty().append(getHtmlEncoded(body).replaceAll('\n', '<br>'));
+				$('.reply-list-box tbody > tr[data-id="' + id + '"] .video-box').empty();
+				$('.reply-list-box tbody > tr[data-id="' + id + '"] .img-box').empty();
 				if (data && data.body && data.body.file__common__attachment) {
 					for ( var fileNo in data.body.file__common__attachment) {
 						var file = data.body.file__common__attachment[fileNo];
 						if (file.fileExtTypeCode == 'video') {
-							var html = '<video preload="none" controls src="/usr/file/streamVideo?id='
-									+ file.id
-									+ '&updateDate='
-									+ file.updateDate
-									+ '">video not supported</video>';
-							$(
-									'.reply-list-box tbody > tr[data-id="' + id
-											+ '"] [data-file-no="' + fileNo
-											+ '"].video-box').append(html);
+							var html = '<video preload="none" controls src="/usr/file/streamVideo?id=' + file.id + '&updateDate=' + file.updateDate + '">video not supported</video>';
+							$('.reply-list-box tbody > tr[data-id="' + id + '"] [data-file-no="' + fileNo + '"].video-box').append(html);
 						} else {
-							var html = '<img src="/usr/file/img?id=' + file.id
-									+ '&updateDate=' + file.updateDate + '">';
-							$(
-									'.reply-list-box tbody > tr[data-id="' + id
-											+ '"] [data-file-no="' + fileNo
-											+ '"].img-box').append(html);
+							var html = '<img src="/usr/file/img?id=' + file.id + '&updateDate=' + file.updateDate + '">';
+							$('.reply-list-box tbody > tr[data-id="' + id + '"] [data-file-no="' + fileNo + '"].img-box').append(html);
 						}
 					}
 				}
@@ -663,20 +642,23 @@
 		var html = '';
 		html += '<tr data-id="' + reply.id + '">';
 		html += '<td>' + reply.id + '</td>';
+		// md up
 		html += '<td class="visible-on-md-up">' + reply.regDate + '</td>';
 		html += '<td class="visible-on-md-up">' + reply.extra.writer + '</td>';
 		html += '<td>';
-		html += '<div class="reply-body">' + reply.forPrintBody + '</div>';
+		html += '<div class="reply-body" style="padding-right:25px; padding-left:25px;">' + reply.forPrintBody + '</div>';
 		html += ReplyList__getMediaHtml(reply);
 		html += '</td>';
 		html += '<td>';
 		if (reply.extra.actorCanDelete) {
-			html += '<button class="btn btn-danger" type="button" onclick="ReplyList__delete(this);">삭제</button>';
+			html += '<button class="btn btn-outline-danger btn-sm" type="button" onclick="ReplyList__delete(this);">삭제</button>';
 		}
 		if (reply.extra.actorCanModify) {
-			html += '<button class="btn btn-info" type="button" onclick="ReplyList__showModifyFormModal(this);">수정</button>';
+			html += '<button class="btn btn-outline-info btn-sm" type="button" onclick="ReplyList__showModifyFormModal(this);">수정</button>';
 		}
+		html += '<button class="btn btn-danger btn-sm" type="butoon" onclick="ReplyList__report(this);">신고</button>';
 		html += '</td>';
+		// sm down
 		html += '<td class="visible-on-sm-down">';
 		html += '<div class="flex flex-row-wrap flex-ai-c">';
 		html += '<span class="badge badge-primary bold margin-right-10">'
@@ -685,17 +667,17 @@
 		html += '&nbsp;|&nbsp;';
 		html += '<div class="reg-date">' + reply.regDate + '</div>';
 		html += '<div class="width-100p"></div>';
-		html += '<div class="body flex-1-0-0 margin-top-10 reply-body">'
-				+ reply.forPrintBody + '</div>';
+		html += '<div class="body flex-1-0-0 margin-top-10 reply-body" style="padding-right:25px; padding-left:25px;">'+ reply.forPrintBody + '</div>';
 		html += ReplyList__getMediaHtml(reply);
 		html += '</div>';
 		html += '<div class="margin-top-10 btn-inline-box">';
 		if (reply.extra.actorCanDelete) {
-			html += '<button class="btn btn-danger" type="button" onclick="ReplyList__delete(this);">삭제</button>';
+			html += '<button class="btn btn-outline-danger btn-sm" type="button" onclick="ReplyList__delete(this);">삭제</button>';
 		}
 		if (reply.extra.actorCanModify) {
-			html += '<button class="btn btn-info" type="button" onclick="ReplyList__showModifyFormModal(this);">수정</button>';
+			html += '<button class="btn btn-outline-info btn-sm" type="button" onclick="ReplyList__showModifyFormModal(this);">수정</button>';
 		}
+		html += '<button class="btn btn-danger btn-sm" type="butoon" onclick="ReplyList__report(this);">신고</button>';
 		html += '</div>';
 		html += '</td>';
 		html += '</tr>';

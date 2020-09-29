@@ -125,3 +125,5 @@ updateDate = NOW(),
 `name` = '빌런';
 
 ALTER TABLE article ADD COLUMN report INT(50) NOT NULL DEFAULT 0;
+ALTER TABLE reply ADD COLUMN report INT(50) NOT NULL DEFAULT 0;
+

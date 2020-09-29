@@ -31,7 +31,7 @@ public class MemberController {
 		memberService.doJoin(param);
 		
 		model.addAttribute("alertMsg","회원가입을 축하 합니다.");
-		return "redirect:../home/main";
+		return "common/redirect";
 	}
 
 	@RequestMapping("/usr/member/login")
@@ -71,7 +71,7 @@ public class MemberController {
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg",String.format("%s님 반갑습니다.", member.getNickname()));
 		
-		return "redirect:"+redirectUri;
+		return "common/redirect";
 	}
 	
 	@RequestMapping("/usr/member/doLogout")
@@ -84,7 +84,7 @@ public class MemberController {
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg","안녕히 가세요");
 		
-		return "redirect:"+redirectUri;
+		return "common/redirect";
 	}
 	
 	@RequestMapping("/usr/member/modify")
@@ -144,21 +144,23 @@ public class MemberController {
 		if (member == null) {
 			model.addAttribute("historyBack", true);
 			model.addAttribute("alertMsg","존재하지 않는 회원입니다.");
+			return "common/redirect";
 		}
 		
 		if (member.getDelStatus() == 1) {
 			model.addAttribute("historyBack",true);
 			model.addAttribute("alertMsg","탈퇴한 회원입니다.");
+			return "common/redirect";
 		}
 		
 		if (redirectUri == null || redirectUri.length() == 0) {
 			redirectUri = "/usr/home/main";
 		}
+
+			model.addAttribute("redirectUri",redirectUri);
+			model.addAttribute("alertMsg","가입하신 이메일로 임시 비밀번호를 발송했습니다.");
 		
-		model.addAttribute("redirectUri",redirectUri);
-		model.addAttribute("alertMsg","가입하신 이메일로 임시 비밀번호를 발송했습니다.");
-		
-		return "redirect:"+redirectUri;
+		return "common/redirect";
 	}
 	
 	@RequestMapping("/usr/member/findLoginId")
@@ -192,7 +194,7 @@ public class MemberController {
 		model.addAttribute("redirectUri",redirectUri);
 		model.addAttribute("alertMsg",String.format("찾으시는 아이디는 %s 입니다.", member.getNickname()));
 		
-		return "redirect:"+redirectUri;
+		return "common/redirect";
 	}
 	
 	@RequestMapping("/usr/member/manage")
