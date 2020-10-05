@@ -39,6 +39,7 @@ h2 {
 
 body {
 	font-family: "DH";
+	height:1080px;
 }
 </style>
 <img src="/resource/img/dvl_logo_v1.png" style="width: 100px;" />
@@ -48,7 +49,7 @@ body {
   <div class="text">
     Daily Villain's
 	<br />
-<h5>알파 테스트 (v.0.3.9)</h5>
+<h5>알파 테스트 (v.0.4.1)</h5>
   </div>
 </main>
 <br />

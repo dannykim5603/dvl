@@ -90,14 +90,15 @@ public class ArticleService {
 		Util.putExtraVal(article, "actorCanModify", actorCanModify(loginedMember, article));		
 	}
 
+
+	private Object actorCanModify(Member loginedMember, Article article) {
+		return loginedMember != null && loginedMember.getId() == article.getMemberId() ? true : false || loginedMember.getLevel() == 10;
+	}
+
 	private Object actorCanDelete(Member loginedMember, Article article) {
 		return actorCanModify(loginedMember, article);
 	}
-
-	private Object actorCanModify(Member loginedMember, Article article) {
-		return loginedMember != null && loginedMember.getId() == article.getMemberId() ? true : false;
-	}
-
+	
 	public void delete(int id) {
 		articleDao.delete(id);
 	}

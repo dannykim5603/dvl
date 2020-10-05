@@ -20,24 +20,28 @@
 	letter-spacing: -3px;
 }
 
+.table-box > table {
+	width:80%;
+}
+
 .table-box tr > td{
 	text-align:-webkit-center;
 }
 
-.table-box>table>thead {
+.table-box > table > thead {
 	
 }
 
-.table-box>table th, .table-box>table>th {
+.table-box > table th, .table-box > table > th {
 	color: crimson;
 	text-align: center;
 }
-.table-box>table th, .table-box>table td {
+.table-box > table th, .table-box > table td {
 	border: 1px solid rgba(0,0,0,0);
 }
 
 .article-detail-box {
-	margin-top: 100px;
+
 }
 
 .article-detail-box>.tr {
@@ -74,36 +78,29 @@
 <div class="article-detail-box table-box table-box-vertical con">
 	<table>
 		<colgroup>
-			<col class="table-first-col" />
 		</colgroup>
 		<tbody>
 			<tr>
 				<th>번호</th>
 				<td>${article.id}</td>
-			</tr>
-			<tr>
 				<th>작성일</th>
 				<td>${article.regDate}</td>
 			</tr>
 			<tr>
 				<th>조회수</th>
 				<td>${article.hit}</td>
-			</tr>
-			<tr>
 				<th>작성자</th>
 				<td>${article.extra.writer}</td>
 			</tr>
 			<tr>
 				<th>제목</th>
 				<td>${article.title}</td>
-			</tr>
-			<tr>
 				<th>좋아요</th>
 				<td>${article.like}</td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><script type="text/x-template">${article.body}</script>
+				<td colspan="3"><script type="text/x-template">${article.body}</script>
 					<div class="toast-editor toast-editor-viewer"></div></td>
 			</tr>
 			<tr>
@@ -131,7 +128,7 @@
 			<c:if test="${isLogined}">
 			<tr>
 				<th></th>
-				<td style="text-align:center">
+				<td style="text-align:center; padding:15px;" colspan="3" >
 					<c:if test="${article.extra.actorCanModify}">
 						<a class="btn btn-info" href="${board.code}-modify?id=${article.id}&listUrl=${Util.getUriEncoded(listUrl)}">수정</a>
 					</c:if> 
@@ -257,8 +254,7 @@
 					<th>내용</th>
 					<td>
 						<div class="form-control-box">
-							<textarea maxlength="300" name="body" placeholder="내용을 입력해주세요."
-								class="height-300"></textarea>
+							<textarea maxlength="300" name="body" placeholder="내용을 입력해주세요." class="height-300"></textarea>
 						</div>
 					</td>
 				</tr>
@@ -302,6 +298,7 @@
 .reply-list-box .media-box>:first-chidl {
 	margin-top: 10px;
 }
+
 .borderless td, .borderless th {
     border: none;
     text-align:center;

@@ -52,7 +52,7 @@ var param = ${paramJson};
 <style>
 
 body {
-	height:1080px;
+	height:100%;
 	text-align:center;
 	font-family: Arial, background: url('tlo.png');
 	background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), url('https://ustawiony.pl/tlo.png');
@@ -97,7 +97,7 @@ body {
 }
 </style>
 <!-- boot ver -->
-<nav class="navbar navbar-expand navbar-light bg-dark" >
+<nav class="shadow-sm navbar navbar-expand navbar-light bg-light" >
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto  flex flex-jc-c ">
       <li class="nav-item active">
@@ -112,7 +112,7 @@ body {
           ${loginedMember.nickname}
           </c:if> 
         </a>
-        <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu text-danger bg-light" aria-labelledby="navbarDropdown">
         <c:if test="${isLogined}">
 			<a class="dropdown-item text-danger" href="/usr/member/accountInfo">Info</a>
 		</c:if>
@@ -129,7 +129,7 @@ body {
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">게시판</a>
-        <div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu text-danger bg-light" aria-labelledby="navbarDropdown">
           <a class="dropdown-item text-danger" href="/usr/article/notice-list">공지</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item text-danger" href="/usr/article/free-list">자유</a>
@@ -139,7 +139,7 @@ body {
       <c:if test="${loginedMember.level eq 10}">
       <li class="nav-item dropdown">
      	<a class="nav-link dropdown-toggle text-danger table-hover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리</a>
-      	<div class="dropdown-menu text-danger bg-dark" aria-labelledby="navbarDropdown">
+      	<div class="dropdown-menu text-danger bg-light" aria-labelledby="navbarDropdown">
       		<a class="dropdown-item text-danger" href="/usr/article/reported">신고된 게시물</a>
       		<a class="dropdown-item text-danger" href="/usr/member/manage">멤버 관리</a>
       	</div>
