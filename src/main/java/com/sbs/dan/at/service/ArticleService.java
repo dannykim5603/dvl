@@ -92,7 +92,7 @@ public class ArticleService {
 
 
 	private Object actorCanModify(Member loginedMember, Article article) {
-		return loginedMember != null && loginedMember.getId() == article.getMemberId() ? true : false || loginedMember.getLevel() == 10;
+		return loginedMember != null && loginedMember.getId() == article.getMemberId() ? true : false;
 	}
 
 	private Object actorCanDelete(Member loginedMember, Article article) {

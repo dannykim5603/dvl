@@ -41,6 +41,21 @@
 <!-- boots JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+<!-- 구글 사이트 등록(소유권 확인) -->
+<meta name="google-site-verification" content="m4-3DvBOtdXqsDpQ9GGSS-xGsZLEinslTD6Dka0p1LI" />
+
+<!-- 구글 애널리틱스 웹사이트 추적 코드 -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179689574-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-179689574-1');
+</script>
+
+
 <%="<script>"%>
 var activeProfile = '${activeProfile}';
 <%="</script>"%>
